@@ -1,0 +1,501 @@
+audio_id,environement,activity
+audio_00000,indoor (general),rest
+audio_00001,near door,seeking attention
+audio_00002,near other animals,playing with toy
+audio_00003,indoor (general),rest
+audio_00004,indoor (general),rest
+audio_00005,indoor (general),playing with human
+audio_00006,indoor (general),alerting to sounds
+audio_00007,indoor (general),playing with human
+audio_00008,near door,playing with human
+audio_00009,indoor (general),rest
+audio_00010,near window,playing with human
+audio_00011,indoor (general),begging for food
+audio_00012,indoor (general),rest
+audio_00013,indoor (general),alerting to sounds
+audio_00014,indoor (general),rest
+audio_00015,indoor (general),playing with other animals
+audio_00016,indoor (general),rest
+audio_00017,near door,begging for food
+audio_00018,indoor (general),playing with other animals
+audio_00019,indoor (general),rest
+audio_00020,indoor (general),alerting to sounds
+audio_00021,indoor (general),alerting to sounds
+audio_00022,indoor (general),alerting to sounds
+audio_00023,vehicle interior,playing with other animals
+audio_00024,indoor (general),seeking attention
+audio_00025,vehicle interior,playing with toy
+audio_00026,near window,playing with other animals
+audio_00027,bathroom,playing with toy
+audio_00028,indoor (general),playing with toy
+audio_00029,near door,begging for food
+audio_00030,indoor (general),playing with human
+audio_00031,indoor (general),taking shower
+audio_00032,indoor (general),playing with other animals
+audio_00033,indoor (general),playing with toy
+audio_00034,indoor (general),rest
+audio_00035,indoor (general),alerting to sounds
+audio_00036,indoor (general),seeking attention
+audio_00037,indoor (general),begging for food
+audio_00038,bathroom,taking shower
+audio_00039,indoor (general),taking shower
+audio_00040,indoor (general),rest
+audio_00041,indoor (general),alerting to sounds
+audio_00042,indoor (general),playing with human
+audio_00043,indoor (general),playing with toy
+audio_00044,indoor (general),alerting to sounds
+audio_00045,indoor (general),rest
+audio_00046,indoor (general),playing with other animals
+audio_00047,near door,playing with other animals
+audio_00048,indoor (general),taking shower
+audio_00049,indoor (general),playing with toy
+audio_00050,indoor (general),rest
+audio_00051,indoor (general),rest
+audio_00052,near other animals,playing with human
+audio_00053,indoor (general),playing with toy
+audio_00054,indoor (general),rest
+audio_00055,indoor (general),rest
+audio_00056,indoor (general),playing with human
+audio_00057,near window,playing with human
+audio_00058,indoor (general),taking shower
+audio_00059,indoor (general),rest
+audio_00060,indoor (general),seeking attention
+audio_00061,near door,begging for food
+audio_00062,indoor (general),alerting to sounds
+audio_00063,indoor (general),playing with other animals
+audio_00064,indoor (general),playing with other animals
+audio_00065,near door,seeking attention
+audio_00066,indoor (general),taking shower
+audio_00067,indoor (general),rest
+audio_00068,near window,playing with human
+audio_00069,indoor (general),taking shower
+audio_00070,indoor (general),playing with other animals
+audio_00071,indoor (general),playing with other animals
+audio_00072,indoor (general),rest
+audio_00073,indoor (general),alerting to sounds
+audio_00074,indoor (general),rest
+audio_00075,indoor (general),rest
+audio_00076,indoor (general),alerting to sounds
+audio_00077,near window,seeking attention
+audio_00078,indoor (general),rest
+audio_00079,indoor (general),rest
+audio_00080,indoor (general),begging for food
+audio_00081,indoor (general),seeking attention
+audio_00082,indoor (general),playing with other animals
+audio_00083,indoor (general),playing with other animals
+audio_00084,indoor (general),alerting to sounds
+audio_00085,indoor (general),playing with human
+audio_00086,indoor (general),rest
+audio_00087,indoor (general),rest
+audio_00088,indoor (general),playing with human
+audio_00089,vehicle interior,playing with toy
+audio_00090,indoor (general),rest
+audio_00091,bathroom,taking shower
+audio_00092,indoor (general),begging for food
+audio_00093,indoor (general),alerting to sounds
+audio_00094,near other animals,playing with other animals
+audio_00095,indoor (general),rest
+audio_00096,near window,seeking attention
+audio_00097,indoor (general),playing with other animals
+audio_00098,indoor (general),rest
+audio_00099,bathroom,taking shower
+audio_00100,near window,playing with human
+audio_00101,indoor (general),playing with other animals
+audio_00102,near other animals,playing with other animals
+audio_00103,indoor (general),playing with other animals
+audio_00104,indoor (general),rest
+audio_00105,indoor (general),seeking attention
+audio_00106,indoor (general),playing with other animals
+audio_00107,near other animals,playing with human
+audio_00108,indoor (general),rest
+audio_00109,indoor (general),seeking attention
+audio_00110,indoor (general),playing with human
+audio_00111,indoor (general),playing with other animals
+audio_00112,indoor (general),seeking attention
+audio_00113,indoor (general),rest
+audio_00114,indoor (general),begging for food
+audio_00115,indoor (general),rest
+audio_00116,indoor (general),playing with human
+audio_00117,indoor (general),alerting to sounds
+audio_00118,indoor (general),rest
+audio_00119,indoor (general),taking shower
+audio_00120,indoor (general),playing with other animals
+audio_00121,indoor (general),playing with other animals
+audio_00122,indoor (general),alerting to sounds
+audio_00123,indoor (general),begging for food
+audio_00124,indoor (general),playing with other animals
+audio_00125,indoor (general),playing with other animals
+audio_00126,indoor (general),seeking attention
+audio_00127,indoor (general),alerting to sounds
+audio_00128,indoor (general),alerting to sounds
+audio_00129,near other animals,taking shower
+audio_00130,on grass,playing with other animals
+audio_00131,near window,playing with human
+audio_00132,near window,seeking attention
+audio_00133,indoor (general),rest
+audio_00134,indoor (general),begging for food
+audio_00135,near door,seeking attention
+audio_00136,indoor (general),seeking attention
+audio_00137,indoor (general),playing with human
+audio_00138,indoor (general),playing with other animals
+audio_00139,near door,taking shower
+audio_00140,vehicle interior,playing with human
+audio_00141,near door,seeking attention
+audio_00142,indoor (general),taking shower
+audio_00143,indoor (general),seeking attention
+audio_00144,near other animals,playing with other animals
+audio_00145,indoor (general),playing with other animals
+audio_00146,indoor (general),rest
+audio_00147,indoor (general),taking shower
+audio_00148,indoor (general),seeking attention
+audio_00149,near other animals,taking shower
+audio_00150,indoor (general),taking shower
+audio_00151,indoor (general),playing with other animals
+audio_00152,indoor (general),playing with toy
+audio_00153,indoor (general),playing with human
+audio_00154,indoor (general),seeking attention
+audio_00155,indoor (general),rest
+audio_00156,near door,playing with human
+audio_00157,indoor (general),taking shower
+audio_00158,bathroom,taking shower
+audio_00159,indoor (general),seeking attention
+audio_00160,near door,playing with other animals
+audio_00161,indoor (general),playing with other animals
+audio_00162,indoor (general),rest
+audio_00163,indoor (general),alerting to sounds
+audio_00164,vehicle interior,playing with human
+audio_00165,indoor (general),playing with toy
+audio_00166,indoor (general),taking shower
+audio_00167,near door,begging for food
+audio_00168,near other animals,playing with other animals
+audio_00169,indoor (general),rest
+audio_00170,indoor (general),playing with human
+audio_00171,indoor (general),alerting to sounds
+audio_00172,indoor (general),seeking attention
+audio_00173,indoor (general),playing with toy
+audio_00174,indoor (general),playing with other animals
+audio_00175,indoor (general),seeking attention
+audio_00176,indoor (general),playing with other animals
+audio_00177,indoor (general),taking shower
+audio_00178,indoor (general),seeking attention
+audio_00179,indoor (general),taking shower
+audio_00180,indoor (general),rest
+audio_00181,indoor (general),playing with human
+audio_00182,indoor (general),rest
+audio_00183,indoor (general),playing with toy
+audio_00184,on grass,playing with other animals
+audio_00185,indoor (general),alerting to sounds
+audio_00186,indoor (general),playing with other animals
+audio_00187,indoor (general),rest
+audio_00188,indoor (general),taking shower
+audio_00189,indoor (general),begging for food
+audio_00190,indoor (general),playing with toy
+audio_00191,bathroom,taking shower
+audio_00192,indoor (general),playing with toy
+audio_00193,near other animals,playing with human
+audio_00194,near window,playing with toy
+audio_00195,indoor (general),rest
+audio_00196,indoor (general),playing with other animals
+audio_00197,indoor (general),playing with human
+audio_00198,indoor (general),taking shower
+audio_00199,indoor (general),rest
+audio_00200,indoor (general),seeking attention
+audio_00201,near other animals,playing with human
+audio_00202,indoor (general),seeking attention
+audio_00203,indoor (general),alerting to sounds
+audio_00204,indoor (general),playing with other animals
+audio_00205,indoor (general),rest
+audio_00206,near other animals,playing with other animals
+audio_00207,indoor (general),alerting to sounds
+audio_00208,indoor (general),rest
+audio_00209,near door,playing with other animals
+audio_00210,indoor (general),seeking attention
+audio_00211,indoor (general),begging for food
+audio_00212,indoor (general),seeking attention
+audio_00213,near window,seeking attention
+audio_00214,near other animals,playing with other animals
+audio_00215,indoor (general),alerting to sounds
+audio_00216,indoor (general),rest
+audio_00217,indoor (general),alerting to sounds
+audio_00218,near other animals,playing with human
+audio_00219,indoor (general),alerting to sounds
+audio_00220,indoor (general),rest
+audio_00221,near other animals,playing with other animals
+audio_00222,indoor (general),alerting to sounds
+audio_00223,indoor (general),playing with other animals
+audio_00224,indoor (general),playing with human
+audio_00225,indoor (general),seeking attention
+audio_00226,indoor (general),playing with other animals
+audio_00227,indoor (general),playing with other animals
+audio_00228,indoor (general),taking shower
+audio_00229,indoor (general),taking shower
+audio_00230,indoor (general),playing with other animals
+audio_00231,near other animals,playing with human
+audio_00232,indoor (general),playing with toy
+audio_00233,indoor (general),seeking attention
+audio_00234,indoor (general),seeking attention
+audio_00235,indoor (general),rest
+audio_00236,indoor (general),playing with human
+audio_00237,near other animals,playing with human
+audio_00238,indoor (general),playing with human
+audio_00239,indoor (general),alerting to sounds
+audio_00240,indoor (general),playing with toy
+audio_00241,indoor (general),seeking attention
+audio_00242,vehicle interior,playing with human
+audio_00243,near other animals,playing with other animals
+audio_00244,near other animals,playing with other animals
+audio_00245,indoor (general),playing with human
+audio_00246,indoor (general),alerting to sounds
+audio_00247,indoor (general),playing with other animals
+audio_00248,indoor (general),playing with human
+audio_00249,indoor (general),playing with human
+audio_00250,near other animals,playing with toy
+audio_00251,indoor (general),rest
+audio_00252,indoor (general),alerting to sounds
+audio_00253,indoor (general),rest
+audio_00254,indoor (general),playing with other animals
+audio_00255,indoor (general),alerting to sounds
+audio_00256,indoor (general),playing with other animals
+audio_00257,indoor (general),playing with other animals
+audio_00258,indoor (general),alerting to sounds
+audio_00259,indoor (general),begging for food
+audio_00260,indoor (general),playing with other animals
+audio_00261,indoor (general),alerting to sounds
+audio_00262,indoor (general),alerting to sounds
+audio_00263,indoor (general),playing with other animals
+audio_00264,indoor (general),taking shower
+audio_00265,indoor (general),playing with other animals
+audio_00266,indoor (general),alerting to sounds
+audio_00267,indoor (general),rest
+audio_00268,indoor (general),playing with human
+audio_00269,indoor (general),alerting to sounds
+audio_00270,indoor (general),rest
+audio_00271,indoor (general),alerting to sounds
+audio_00272,indoor (general),seeking attention
+audio_00273,near window,playing with human
+audio_00274,indoor (general),rest
+audio_00275,near door,playing with human
+audio_00276,indoor (general),rest
+audio_00277,near door,playing with human
+audio_00278,indoor (general),rest
+audio_00279,indoor (general),playing with toy
+audio_00280,indoor (general),seeking attention
+audio_00281,indoor (general),playing with toy
+audio_00282,near window,seeking attention
+audio_00283,indoor (general),seeking attention
+audio_00284,indoor (general),alerting to sounds
+audio_00285,bathroom,taking shower
+audio_00286,near other animals,playing with human
+audio_00287,indoor (general),taking shower
+audio_00288,indoor (general),alerting to sounds
+audio_00289,near door,playing with human
+audio_00290,indoor (general),seeking attention
+audio_00291,indoor (general),rest
+audio_00292,indoor (general),playing with toy
+audio_00293,indoor (general),playing with human
+audio_00294,vehicle interior,playing with other animals
+audio_00295,indoor (general),alerting to sounds
+audio_00296,indoor (general),alerting to sounds
+audio_00297,indoor (general),playing with toy
+audio_00298,indoor (general),playing with toy
+audio_00299,indoor (general),seeking attention
+audio_00300,indoor (general),playing with toy
+audio_00301,indoor (general),rest
+audio_00302,indoor (general),taking shower
+audio_00303,indoor (general),playing with other animals
+audio_00304,near other animals,playing with other animals
+audio_00305,indoor (general),taking shower
+audio_00306,indoor (general),seeking attention
+audio_00307,On grass,Playing with other animals
+audio_00308,indoor (general),alerting to sounds
+audio_00309,indoor (general),rest
+audio_00310,indoor (general),playing with human
+audio_00311,near door,playing with toy
+audio_00312,indoor (general),rest
+audio_00313,indoor (general),seeking attention
+audio_00314,indoor (general),taking shower
+audio_00315,indoor (general),playing with toy
+audio_00316,indoor (general),playing with other animals
+audio_00317,indoor (general),playing with toy
+audio_00318,indoor (general),playing with toy
+audio_00319,indoor (general),playing with human
+audio_00320,indoor (general),playing with other animals
+audio_00321,indoor (general),rest
+audio_00322,outdoor,playing with other animals
+audio_00323,indoor (general),rest
+audio_00324,vehicle interior,playing with toy
+audio_00325,indoor (general),rest
+audio_00326,indoor (general),rest
+audio_00327,indoor (general),playing with toy
+audio_00328,indoor (general),rest
+audio_00329,near other animals,playing with human
+audio_00330,indoor (general),rest
+audio_00331,indoor (general),playing with other animals
+audio_00332,indoor (general),seeking attention
+audio_00333,indoor (general),playing with human
+audio_00334,indoor (general),taking shower
+audio_00335,indoor (general),playing with toy
+audio_00336,indoor (general),rest
+audio_00337,near other animals,playing with other animals
+audio_00338,indoor (general),playing with toy
+audio_00339,bathroom,taking shower
+audio_00340,indoor (general),playing with toy
+audio_00341,indoor (general),alerting to sounds
+audio_00342,near door,playing with other animals
+audio_00343,indoor (general),taking shower
+audio_00344,on grass,playing with other animals
+audio_00345,vehicle interior,playing with toy
+audio_00346,indoor (general),rest
+audio_00347,near other animals,playing with human
+audio_00348,indoor (general),alerting to sounds
+audio_00349,indoor (general),seeking attention
+audio_00350,indoor (general),playing with human
+audio_00351,indoor (general),seeking attention
+audio_00352,indoor (general),playing with toy
+audio_00353,indoor (general),playing with human
+audio_00354,indoor (general),playing with toy
+audio_00355,indoor (general),playing with other animals
+audio_00356,indoor (general),rest
+audio_00357,indoor (general),taking shower
+audio_00358,indoor (general),taking shower
+audio_00359,indoor (general),taking shower
+audio_00360,indoor (general),rest
+audio_00361,indoor (general),alerting to sounds
+audio_00362,indoor (general),playing with other animals
+audio_00363,indoor (general),rest
+audio_00364,vehicle interior,playing with other animals
+audio_00365,indoor (general),playing with toy
+audio_00366,near other animals,playing with human
+audio_00367,indoor (general),alerting to sounds
+audio_00368,indoor (general),alerting to sounds
+audio_00369,indoor (general),rest
+audio_00370,indoor (general),taking shower
+audio_00371,indoor (general),playing with toy
+audio_00372,vehicle interior,playing with toy
+audio_00373,indoor (general),playing with other animals
+audio_00374,indoor (general),seeking attention
+audio_00375,indoor (general),alerting to sounds
+audio_00376,indoor (general),rest
+audio_00377,indoor (general),rest
+audio_00378,indoor (general),rest
+audio_00379,indoor (general),rest
+audio_00380,indoor (general),playing with human
+audio_00381,indoor (general),alerting to sounds
+audio_00382,indoor (general),taking shower
+audio_00383,indoor (general),alerting to sounds
+audio_00384,vehicle interior,playing with toy
+audio_00385,indoor (general),rest
+audio_00386,indoor (general),rest
+audio_00387,indoor (general),rest
+audio_00388,vehicle interior,playing with toy
+audio_00389,indoor (general),alerting to sounds
+audio_00390,indoor (general),playing with other animals
+audio_00391,indoor (general),playing with toy
+audio_00392,indoor (general),playing with toy
+audio_00393,indoor (general),alerting to sounds
+audio_00394,indoor (general),alerting to sounds
+audio_00395,indoor (general),alerting to sounds
+audio_00396,near window,playing with human
+audio_00397,indoor (general),rest
+audio_00398,indoor (general),seeking attention
+audio_00399,indoor (general),alerting to sounds
+audio_00400,Indoor (General),Playing with Human
+audio_00401,indoor (general),seeking attention
+audio_00402,indoor (general),rest
+audio_00403,indoor (general),playing with toy
+audio_00404,near other animals,playing with other animals
+audio_00405,near window,playing with human
+audio_00406,indoor (general),playing with other animals
+audio_00407,indoor (general),rest
+audio_00408,near other animals,playing with human
+audio_00409,indoor (general),playing with other animals
+audio_00410,indoor (general),begging for food
+audio_00411,vehicle interior,playing with other animals
+audio_00412,Indoor (General),Playing with Human
+audio_00413,indoor (general),rest
+audio_00414,Indoor (General),Playing with Human
+audio_00415,indoor (general),alerting to sounds
+audio_00416,indoor (general),begging for food
+audio_00417,near other animals,playing with human
+audio_00418,indoor (general),alerting to sounds
+audio_00419,indoor (general),rest
+audio_00420,indoor (general),taking shower
+audio_00421,Indoor (General),Rest
+audio_00422,indoor (general),rest
+audio_00423,indoor (general),playing with human
+audio_00424,indoor (general),playing with toy
+audio_00425,indoor (general),seeking attention
+audio_00426,indoor (general),rest
+audio_00427,indoor (general),rest
+audio_00428,indoor (general),alerting to sounds
+audio_00429,indoor (general),begging for food
+audio_00430,indoor (general),playing with toy
+audio_00431,indoor (general),alerting to sounds
+audio_00432,near door,playing with human
+audio_00433,near other animals,playing with other animals
+audio_00434,indoor (general),rest
+audio_00435,indoor (general),playing with human
+audio_00436,indoor (general),playing with other animals
+audio_00437,indoor (general),playing with human
+audio_00438,indoor (general),playing with other animals
+audio_00439,indoor (general),taking shower
+audio_00440,vehicle interior,playing with toy
+audio_00441,indoor (general),playing with other animals
+audio_00442,indoor (general),playing with other animals
+audio_00443,indoor (general),playing with toy
+audio_00444,indoor (general),begging for food
+audio_00445,indoor (general),playing with other animals
+audio_00446,near other animals,playing with other animals
+audio_00447,indoor (general),alerting to sounds
+audio_00448,indoor (general),playing with toy
+audio_00449,indoor (general),alerting to sounds
+audio_00450,indoor (general),playing with toy
+audio_00451,indoor (general),rest
+audio_00452,indoor (general),alerting to sounds
+audio_00453,near other animals,playing with other animals
+audio_00454,indoor (general),alerting to sounds
+audio_00455,indoor (general),playing with toy
+audio_00456,indoor (general),playing with toy
+audio_00457,indoor (general),playing with toy
+audio_00458,indoor (general),begging for food
+audio_00459,indoor (general),alerting to sounds
+audio_00460,Bathroom,Playing with human
+audio_00461,indoor (general),playing with human
+audio_00462,indoor (general),playing with human
+audio_00463,indoor (general),rest
+audio_00464,indoor (general),playing with toy
+audio_00465,indoor (general),rest
+audio_00466,near door,playing with human
+audio_00467,near other animals,playing with toy
+audio_00468,indoor (general),playing with toy
+audio_00469,near other animals,playing with toy
+audio_00470,indoor (general),rest
+audio_00471,indoor (general),seeking attention
+audio_00472,indoor (general),alerting to sounds
+audio_00473,indoor (general),rest
+audio_00474,near door,rest
+audio_00475,near other animals,playing with human
+audio_00476,indoor (general),rest
+audio_00477,indoor (general),rest
+audio_00478,indoor (general),seeking attention
+audio_00479,near other animals,playing with human
+audio_00480,indoor (general),playing with toy
+audio_00481,outdoor,playing with other animals
+audio_00482,indoor (general),rest
+audio_00483,indoor (general),seeking attention
+audio_00484,Indoor (General),Playing with Human
+audio_00485,indoor (general),taking shower
+audio_00486,near window,alerting to sounds
+audio_00487,near window,playing with human
+audio_00488,indoor (general),alerting to sounds
+audio_00489,near other animals,playing with human
+audio_00490,indoor (general),taking shower
+audio_00491,indoor (general),taking shower
+audio_00492,indoor (general),playing with other animals
+audio_00493,indoor (general),seeking attention
+audio_00494,indoor (general),rest
+audio_00495,indoor (general),alerting to sounds
+audio_00496,indoor (general),playing with human
+audio_00497,indoor (general),playing with human
+audio_00498,indoor (general),playing with human
+audio_00499,indoor (general),alerting to sounds

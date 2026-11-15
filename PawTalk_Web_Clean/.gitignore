@@ -1,0 +1,9 @@
+DEEPSEEK_CONFIG.ini
+.env
+state/
+data/
+__pycache__/
+models/
+.venv_emotion/
+EMOTION_ERROR.txt
+EMOTION_SETUP_ERROR.txt

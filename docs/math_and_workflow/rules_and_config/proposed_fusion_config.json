@@ -1,0 +1,20 @@
+{
+  "status": "PROPOSED_NOT_IMPLEMENTED_NOT_CALIBRATED",
+  "audio_weight": 0.6,
+  "observation_weight": 0.4,
+  "scene_temperature": 1.0,
+  "rule_primary": 1.0,
+  "rule_other": 0.5,
+  "central_uncertain_union_rule": 0.5,
+  "observation_target": 0.35,
+  "observation_action": 0.35,
+  "observation_response": 0.3,
+  "contradiction_penalty": 0.6,
+  "score_threshold": 0.6,
+  "gap_threshold": 0.1,
+  "min_independent_facts": 2,
+  "min_supported_dimensions": 2,
+  "max_questions": 3,
+  "all_six_intents_scored": true,
+  "semantic_conflict_gate_required": true
+}

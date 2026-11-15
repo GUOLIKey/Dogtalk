@@ -1,0 +1,48 @@
+{
+  "repository": "ArlingtonCL2/Barkopedia_Dog_Act_Env",
+  "revision": "60a721a7f9477634971f6b3df29dc2a5e56994d8",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1917,
+      "sha256": "f01c39dbebba3fbdd3264f73340cda9ff11b47af3c1a1c9c45ea46ef9dfba27b",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/README.md"
+    },
+    {
+      "path": "test/test.zip",
+      "bytes": 136757337,
+      "sha256": "2732cfb99d41b883ef139885d36c75d798ef347915334f7c37eef11378c7c9c2",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/test/test.zip"
+    },
+    {
+      "path": "train/split1.zip",
+      "bytes": 300949319,
+      "sha256": "167f4ce7eb0ff37554e1e7d2c91f339c4c9a9f18bc1b567885f8317ab73ec5aa",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/train/split1.zip"
+    },
+    {
+      "path": "train/split2.zip",
+      "bytes": 286454421,
+      "sha256": "dc1632dfd3a529702a9735c6a65ba563a010b99fd8273272f71b8078665e44bc",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/train/split2.zip"
+    },
+    {
+      "path": "train/train_label.csv",
+      "bytes": 578334,
+      "sha256": "e1a517e0c9f08d0d8c716c9bf662a907bdeb6a5df316551bdb33256a1184aa5c",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/train/train_label.csv"
+    },
+    {
+      "path": "validation/valid_audios.zip",
+      "bytes": 21388795,
+      "sha256": "3c9b1a7993284917135dde427a7790a9e61da35da4ba6f070309e6caefb893b6",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/validation/valid_audios.zip"
+    },
+    {
+      "path": "validation/valid_labels.csv",
+      "bytes": 23133,
+      "sha256": "9813d1c1d997fc891c18938ab7baffd4d140d6b3cf196f2aa027a173f7e61245",
+      "source_url": "https://huggingface.co/datasets/ArlingtonCL2/Barkopedia_Dog_Act_Env/resolve/60a721a7f9477634971f6b3df29dc2a5e56994d8/validation/valid_labels.csv"
+    }
+  ]
+}

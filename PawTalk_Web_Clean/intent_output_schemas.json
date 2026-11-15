@@ -1,0 +1,415 @@
+{
+  "version": "v0.2",
+  "note": "v12 正常 flow=context_first 必须返回 request_understanding；更新必须给 explanation/readiness。运行时还检查来源、三问预算与候选 ID。旧流程保持兼容。",
+  "generation": {
+    "type": "object",
+    "required": [
+      "intents",
+      "primary_rule_id",
+      "emotion_summary_ref"
+    ],
+    "properties": {
+      "primary_rule_id": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "emotion_summary_ref": {
+        "const": "server_emotion_summary"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "intents": {
+        "type": "array",
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "required": [
+            "intent_id",
+            "description",
+            "status",
+            "supporting_signals",
+            "uncertainties"
+          ],
+          "properties": {
+            "intent_id": {
+              "type": "string",
+              "enum": [
+                "I01",
+                "I02",
+                "I03",
+                "I04",
+                "I05",
+                "I06"
+              ]
+            },
+            "status": {
+              "const": "possible"
+            },
+            "description": {
+              "type": "string"
+            },
+            "supporting_signals": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "source",
+                  "label",
+                  "score",
+                  "explanation"
+                ],
+                "properties": {
+                  "source": {
+                    "enum": [
+                      "context",
+                      "arousal",
+                      "valence"
+                    ]
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  },
+                  "explanation": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "source_rule_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "outside_rule_pool_reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "supporting_observations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "answer_id",
+                  "quote",
+                  "role"
+                ],
+                "properties": {
+                  "answer_id": {
+                    "type": "string"
+                  },
+                  "quote": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "enum": [
+                      "support",
+                      "contradict",
+                      "clarify"
+                    ]
+                  },
+                  "answer_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "brief_reason": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "subtype": {
+              "type": "object",
+              "properties": {
+                "target": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "interaction_partner": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "requested_change": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "supporting_answer_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "uncertainties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "request_understanding": {
+        "type": "object",
+        "properties": {
+          "user_question": {
+            "type": "string"
+          },
+          "question_quotes": {
+            "type": "array"
+          },
+          "statements": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  },
+  "update": {
+    "type": "object",
+    "required": [
+      "action",
+      "assessments",
+      "primary_rule_id",
+      "emotion_summary_ref"
+    ],
+    "properties": {
+      "primary_rule_id": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "emotion_summary_ref": {
+        "const": "server_emotion_summary"
+      },
+      "action": {
+        "enum": [
+          "ask",
+          "conclude",
+          "uncertain",
+          "outside_candidates"
+        ]
+      },
+      "selected_intent_id": {
+        "anyOf": [
+          {
+            "type": "string",
+            "enum": [
+              "I01",
+              "I02",
+              "I03",
+              "I04",
+              "I05",
+              "I06"
+            ]
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "coexisting_intent_ids": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "I01",
+            "I02",
+            "I03",
+            "I04",
+            "I05",
+            "I06"
+          ]
+        }
+      },
+      "result_status": {
+        "enum": [
+          null,
+          "concluded",
+          "coexisting_supported",
+          "multiple_possible",
+          "outside_candidates",
+          "insufficient_evidence",
+          "user_stopped"
+        ]
+      },
+      "assessments": {
+        "type": "array",
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "required": [
+            "intent_id",
+            "status",
+            "reason",
+            "evidence"
+          ],
+          "properties": {
+            "intent_id": {
+              "type": "string",
+              "enum": [
+                "I01",
+                "I02",
+                "I03",
+                "I04",
+                "I05",
+                "I06"
+              ]
+            },
+            "status": {
+              "enum": [
+                "possible",
+                "supported",
+                "excluded",
+                "subsumed"
+              ]
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "answer_id",
+                  "quote",
+                  "role"
+                ],
+                "properties": {
+                  "answer_id": {
+                    "type": "string"
+                  },
+                  "quote": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "enum": [
+                      "support",
+                      "contradict",
+                      "clarify"
+                    ]
+                  },
+                  "answer_revision": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "brief_reason": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "subtype": {
+              "type": "object",
+              "properties": {
+                "target": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "interaction_partner": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "requested_change": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "supporting_answer_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "question": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "template_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "distinguishes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "I01",
+                "I02",
+                "I03",
+                "I04",
+                "I05",
+                "I06"
+              ]
+            }
+          }
+        }
+      },
+      "explanation": {
+        "type": "string"
+      },
+      "ranked_intent_ids": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "I01",
+            "I02",
+            "I03",
+            "I04",
+            "I05",
+            "I06"
+          ]
+        }
+      },
+      "readiness": {
+        "type": "object",
+        "properties": {
+          "critical_conflicts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comparisons": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  },
+  "flow_version": "context-first-v1"
+}

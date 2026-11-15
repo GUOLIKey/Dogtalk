@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv*/
+.hf_cache/
+.env
+.env.*
+!*.example
+DEEPSEEK_CONFIG.ini
+PawTalk_Web_Clean/models/
+PawTalk_Web_Clean/data/
+PawTalk_Web_Clean/uploads/
+PawTalk_Web_Clean/*ERROR.txt
+*.sqlite*
+*.db
+*.log
+*.part

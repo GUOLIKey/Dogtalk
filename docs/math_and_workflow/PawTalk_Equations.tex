@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\[
+F_i^{(t)}=0.60M_i+0.40O_i^{(t)}
+\]
+
+\[
+\mathbf{s}=f_{\theta_s}(x)\in\mathbb{R}^{8},\quad \hat{y}_{s}=\operatorname{predict}_{\theta_s}(x)
+\]
+
+\[
+\mathbf{a}=f_{\theta_a}(x)\in[0,1]^3,\quad \mathbf{v}=f_{\theta_v}(x)\in[0,1]^3
+\]
+
+\[
+w_j=\frac{\exp((s_j-s_{\max})/T_s)}{\sum_{k=1}^{8}\exp((s_k-s_{\max})/T_s)},\quad T_s=1
+\]
+
+\[
+g_b=\mathbb{1}[\max(\mathbf{z}_b)\geq0.60\ \land\ m_b\geq0.15\ \land\ c_b\geq0.60]
+\]
+
+\[
+M_i=\sum_{j=1}^{8}w_jR_{ji}(e),\quad 0\leq M_i\leq1
+\]
+
+\[
+R_{ji}(e)=\left\{\begin{array}{ll}1,&i=\mathrm{primary}(j,e)\\0.5,&i\in\mathrm{pool}(j,e),\ i\ne\mathrm{primary}(j,e)\\0,&\mathrm{otherwise}\end{array}\right.
+\]
+
+\[
+R_{ji}(e_0)=0.5\,\mathbb{1}[i\in\bigcup_{e=1}^{4}\mathrm{pool}(j,e)]
+\]
+
+\[
+O_i^{(t)}=\operatorname{clip}(0.35T_i^{(t)}+0.35A_i^{(t)}+0.30R_i^{(t)}-0.60C_i^{(t)},0,1)
+\]
+
+\[
+n_i^{(t)}=\left|\{\text{independent direct facts supporting }i\}\right|
+\]
+
+\[
+F_i^{(t)}=\lambda M_i+(1-\lambda)O_i^{(t)},\quad\lambda=0.60
+\]
+
+\[
+i^*=\arg\max_i F_i^{(t)},\quad\Delta_t=F_{(1)}^{(t)}-F_{(2)}^{(t)}
+\]
+
+\[
+\mathrm{Stop}_t=\mathbb{1}[F_{i^*}^{(t)}\geq0.60\land\Delta_t\geq0.10\land n_{i^*}^{(t)}\geq2\land G_t=1]
+\]
+
+\[
+O_i\geq\frac{0.60-0.60M_i}{0.40}
+\]
+
+\[
+q_{\mathrm{next}}=\arg\max_{q\in\mathcal{Q}_{\mathrm{valid}}}D(q)
+\]
+
+\[
+\mathrm{Coverage}=\frac{N_{\mathrm{single}}}{N},\quad \mathrm{Risk}=\frac{N_{\mathrm{wrong\ single}}}{N_{\mathrm{single}}}
+\]
+
+\[
+(\tau^*,\delta^*)=\arg\max_{\tau,\delta}\mathrm{Coverage}\quad\mathrm{s.t.}\quad\mathrm{Risk}\leq\epsilon
+\]
+
+\[
+\mathbf{z}_t=[\mathbf{s},\mathbf{a},\mathbf{v},\mathbf{O}_t,\mathbf{g},\mathbf{masks}],\quad p_i=\sigma(\mathbf{b}_i^T\mathbf{z}_t+c_i)
+\]
+\end{document}

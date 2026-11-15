@@ -1,0 +1,2 @@
+datasets/**/*.zip filter=lfs diff=lfs merge=lfs -text
+datasets/**/*.wav filter=lfs diff=lfs merge=lfs -text

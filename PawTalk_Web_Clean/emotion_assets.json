@@ -1,0 +1,21 @@
+{
+  "repository": "https://github.com/itzefyee/dogbark",
+  "commit": "4854d26c351a3fb17798720c5ef4ffb14f1720a7",
+  "source_file": "index.py",
+  "source_sha256": "3f583cc9bb2c76ff86f3fea171e3400aad186b66aa77af703d2001b06a6f5ab3",
+  "recipe": "dogbark_index_4854_2s_pcm16_mfcc1_25_v1",
+  "files": {
+    "final_arousal_model.keras": {
+      "sha256": "5578cfe31298ef58adfaba0033144f41d6bdcafe8563daeee628f7d8034cebaa",
+      "bytes": 968163
+    },
+    "final_valence_model.keras": {
+      "sha256": "55f6b7d031e646b5358df08f4e6b4001c4b8128502f8d92f7251a122fe02e7dd",
+      "bytes": 2661396
+    },
+    "scaler_sequential.pkl": {
+      "sha256": "892043e5ae126e7cb2727e361c1199156e773a5a32959394831ce85a00a38c44",
+      "bytes": 623
+    }
+  }
+}

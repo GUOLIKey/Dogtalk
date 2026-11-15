@@ -1,0 +1,54 @@
+{
+  "version": "v0.2",
+  "status": "unvalidated_product_hypotheses",
+  "intents": [
+    {
+      "intent_id": "I01",
+      "title": "希望得到食物",
+      "description": "希望获得当前关注的食物或进食机会",
+      "supporting_observations": "关注具体食物，在人与食物间转换目光，行为随食物相关事件变化",
+      "insufficient_signals": "讨食模型排第一；平时爱吃；附近有食盆",
+      "boundaries": "与一般关注、食物参与的游戏区分；“饿了”不是本类结论"
+    },
+    {
+      "intent_id": "I02",
+      "title": "希望开始或继续游戏",
+      "description": "希望与人、同伴或玩具有关的游戏开始或维持",
+      "supporting_observations": "指向游戏对象，暂停后主动重新邀请或返回互动",
+      "insufficient_signals": "正在玩；附近有玩具；高唤醒；单次摇尾巴",
+      "boundaries": "与希望停止接触、一般关注、活动伴随发声区分"
+    },
+    {
+      "intent_id": "I03",
+      "title": "希望获得回应或陪伴",
+      "description": "希望特定对象关注、回应或靠近，目前没有更具体目标",
+      "supporting_observations": "行为指向主人，回应前后行为发生相应变化，未发现更明确的食物或游戏目标",
+      "insufficient_signals": "对着主人叫；主人主观说“它想我”；存在声音互动",
+      "boundaries": "作为一般目标，不应与食物或游戏诉求强制互斥；发现具体目标后可被更具体解释涵盖"
+    },
+    {
+      "intent_id": "I04",
+      "title": "希望停止或减轻当前接触",
+      "description": "希望当前淋水、触碰、拉扯等接触停止或减轻",
+      "supporting_observations": "叫声与某项接触同时变化，伴随回避；已发生的暂停前后表现可用于比较",
+      "insufficient_signals": "洗澡场景；负向分数；某项接触存在",
+      "boundaries": "与希望拉开距离可能共存；不要据此诊断疼痛、恐惧或疾病"
+    },
+    {
+      "intent_id": "I05",
+      "title": "希望接近或查看外界目标",
+      "description": "希望靠近、查看当前引起注意的外部对象或位置；明确食物或游戏目的优先用 I01/I02",
+      "supporting_observations": "注意指向外部目标，主动靠近或试图到达，既有观察显示接近与当前行为相关",
+      "insufficient_signals": "看门口；对声音警觉；单纯身体朝向",
+      "boundaries": "与被动注意、追逐、希望刺激远离区分；不能单凭警觉标签加入强结论"
+    },
+    {
+      "intent_id": "I06",
+      "title": "希望与当前刺激拉开距离",
+      "description": "希望自己远离当前对象，或对象与自己保持更远距离",
+      "supporting_observations": "有明确对象与持续退开、回避等方向性观察；距离变化前后的既有表现可辅助",
+      "insufficient_signals": "负向、高唤醒；陌生人在场；一次后退",
+      "boundaries": "与 I04 可共存；不要自动解释为攻击、保护主人或要求驱赶他人"
+    }
+  ]
+}

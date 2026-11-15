@@ -1,0 +1,64 @@
+{
+  "model_commit": "4854d26c351a3fb17798720c5ef4ffb14f1720a7",
+  "tensorflow": "2.19.0",
+  "keras": "3.8.0",
+  "source": "Pinned original index.py function AST, no Streamlit app execution",
+  "signals": [
+    {
+      "duration": 0.4,
+      "chunks": 1,
+      "max_feature_error": 0.0,
+      "max_prediction_errors": [
+        2.9802322387695312e-08,
+        2.9802322387695312e-08
+      ],
+      "arousal_display": "暂不确定",
+      "valence_display": "暂不确定"
+    },
+    {
+      "duration": 1.0,
+      "chunks": 1,
+      "max_feature_error": 0.0,
+      "max_prediction_errors": [
+        5.960464477539063e-08,
+        0.0
+      ],
+      "arousal_display": "暂不确定",
+      "valence_display": "暂不确定"
+    },
+    {
+      "duration": 2.0,
+      "chunks": 1,
+      "max_feature_error": 0.0,
+      "max_prediction_errors": [
+        5.960464477539063e-08,
+        0.0
+      ],
+      "arousal_display": "暂不确定",
+      "valence_display": "暂不确定"
+    },
+    {
+      "duration": 2.35,
+      "chunks": 2,
+      "max_feature_error": 0.0,
+      "max_prediction_errors": [
+        1.1920928955078125e-07,
+        1.1920928955078125e-07
+      ],
+      "arousal_display": "暂不确定",
+      "valence_display": "暂不确定"
+    },
+    {
+      "duration": 6.2,
+      "chunks": 4,
+      "max_feature_error": 0.0,
+      "max_prediction_errors": [
+        1.1920928955078125e-07,
+        1.7881393432617188e-07
+      ],
+      "arousal_display": "暂不确定",
+      "valence_display": "暂不确定"
+    }
+  ],
+  "result": "PASS. These are synthetic signals; not evidence of dog emotion accuracy."
+}

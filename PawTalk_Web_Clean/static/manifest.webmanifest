@@ -1,0 +1,17 @@
+{
+  "name": "PawTalk Intent v12",
+  "short_name": "PawTalk",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f5ed",
+  "theme_color": "#254b42",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "description": "双路声音分析、三个意图假设与观察问答"
+}

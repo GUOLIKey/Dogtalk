@@ -1,0 +1,59 @@
+{
+  "version": "v0.2",
+  "scenes": {
+    "A1": {
+      "label": "alerting to sounds",
+      "name": "对声音警觉"
+    },
+    "A2": {
+      "label": "begging for food",
+      "name": "讨食"
+    },
+    "A3": {
+      "label": "playing with human",
+      "name": "与人玩耍"
+    },
+    "A4": {
+      "label": "playing with other animals",
+      "name": "与其他动物玩耍"
+    },
+    "A5": {
+      "label": "playing with toy",
+      "name": "玩玩具"
+    },
+    "A6": {
+      "label": "rest",
+      "name": "休息"
+    },
+    "A7": {
+      "label": "seeking attention",
+      "name": "寻求关注"
+    },
+    "A8": {
+      "label": "taking shower",
+      "name": "洗澡"
+    }
+  },
+  "quadrants": {
+    "E1": {
+      "valence": "Positive",
+      "arousal": "High",
+      "name": "正向·高唤醒"
+    },
+    "E2": {
+      "valence": "Negative",
+      "arousal": "High",
+      "name": "负向·高唤醒"
+    },
+    "E3": {
+      "valence": "Positive",
+      "arousal": "Low",
+      "name": "正向·低唤醒"
+    },
+    "E4": {
+      "valence": "Negative",
+      "arousal": "Low",
+      "name": "负向·低唤醒"
+    }
+  }
+}

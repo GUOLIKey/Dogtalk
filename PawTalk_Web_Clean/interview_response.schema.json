@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DogTalk catalog interview response v2",
+  "type": "object",
+  "required": [
+    "action",
+    "assessments"
+  ],
+  "properties": {
+    "action": {
+      "enum": [
+        "ask",
+        "conclude",
+        "uncertain",
+        "outside_candidates"
+      ]
+    },
+    "selected_intent_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        null,
+        "I01",
+        "I02",
+        "I03",
+        "I04",
+        "I05",
+        "I06"
+      ]
+    },
+    "coexisting_intent_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "I01",
+          "I02",
+          "I03",
+          "I04",
+          "I05",
+          "I06"
+        ]
+      }
+    },
+    "assessments": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "intent_id",
+          "status",
+          "reason",
+          "evidence"
+        ],
+        "properties": {
+          "intent_id": {
+            "enum": [
+              "I01",
+              "I02",
+              "I03",
+              "I04",
+              "I05",
+              "I06"
+            ]
+          },
+          "status": {
+            "enum": [
+              "possible",
+              "supported",
+              "excluded",
+              "subsumed"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "answer_id",
+                "quote",
+                "role"
+              ],
+              "properties": {
+                "answer_id": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "enum": [
+                    "support",
+                    "contradict",
+                    "clarify"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "question": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "distinguishes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "I01",
+              "I02",
+              "I03",
+              "I04",
+              "I05",
+              "I06"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "ask"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "question"
+        ],
+        "properties": {
+          "question": {
+            "type": "object",
+            "required": [
+              "text",
+              "distinguishes"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
