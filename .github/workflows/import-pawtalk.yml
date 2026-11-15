@@ -1,0 +1,23 @@
+name: Import verified PawTalk release and datasets
+on:
+  push:
+    branches: [pawtalk-v12-two-datasets-20261115]
+    paths: [.github/bootstrap/import_request.json]
+permissions:
+  contents: write
+concurrency:
+  group: pawtalk-v12-dataset-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'GUOLIKey/Dogtalk'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: pawtalk-v12-two-datasets-20261115
+          lfs: false
+          persist-credentials: true
+      - name: Restore release, verify public datasets and upload actual LFS objects
+        run: python3 .github/import_pawtalk.py
