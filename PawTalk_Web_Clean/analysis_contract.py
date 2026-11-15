@@ -1,13 +1,13 @@
 """Whitelist model outputs before they can enter any normal LLM prompt."""
 import math
-from engine import LABELS, NAMES
+from scene_schema import LABELS, NAMES, LABEL_VERSION, CONFIG_SHA256, MODEL_VERSION, validate_metadata
 
 AROUSAL = ('Low', 'Medium', 'High')
 VALENCE = ('Negative', 'Neutral', 'Positive')
-SCHEMA_VERSION = 'dual-analysis-v1'
+SCHEMA_VERSION = 'dual-analysis-six-v1'
 MODEL_FIELDS = ('feature_version', 'clap_model', 'model_sha256', 'sklearn_version',
                 'librosa_version', 'transformers_version', 'torch_version', 'train_count',
-                'C', 'gamma', 'created', 'classes_')
+                'C', 'gamma', 'created', 'classes_', 'label_version', 'label_config_sha256', 'model_version', 'score_kind', 'split_id')
 
 
 def number(value):
@@ -32,12 +32,14 @@ def context_result(row, cache_meta=None):
         raise ValueError('正常流程仅接受实时模型或 OOF 缓存预测。')
     metadata = row.get('model_metadata', {})
     metadata = {key: metadata[key] for key in MODEL_FIELDS if key in metadata}
+    validate_metadata(metadata)
     classes = metadata.get('classes_')
-    if classes is not None and (not isinstance(classes,list) or len(classes)!=8 or set(classes)!=set(LABELS)):
+    if classes is not None and (not isinstance(classes,list) or len(classes)!=6 or set(classes)!=set(LABELS)):
         raise ValueError('模型实际 classes_ 与业务标签不一致。')
     cache_meta = cache_meta or {}
     return {
-        'available': True, 'status': 'ready', 'model': 'MFCC30 + CLAP512 + RBF SVM',
+        'available': True, 'status': 'ready', 'model': 'MFCC30 + CLAP512 + RBF SVM (six scenes)',
+        'label_version': LABEL_VERSION, 'label_config_sha256':CONFIG_SHA256, 'model_version':MODEL_VERSION,
         'scores': values, 'labels': dict(NAMES), 'score_ranking':sorted(values,key=values.get,reverse=True), 'feature_limits':{'clap_seconds':10,'mfcc':'whole_clip'},
         'original_preferred': {'label': preferred, 'name': NAMES[preferred], 'score': values[preferred]},
         'score_kind': 'svm_decision_function_ovr',

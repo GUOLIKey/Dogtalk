@@ -21,11 +21,13 @@ from upload_jobs import UploadJobs
 from engine import LABELS, NAMES, evaluate_records
 from llm_client import config as llm_config
 
-APP_VERSION = 'PawTalk Web Intent v12'
+from scene_schema import LABEL_VERSION, ORIGINAL_TO_SIX, public_config
+from scene_cache import load_index
+APP_VERSION = 'PawTalk Web Six Scenes v1'
 ROOT = Path(__file__).resolve().parent
 STATE = ROOT / 'state'; STATE.mkdir(exist_ok=True, parents=True)
 DB = STATE / 'sessions.sqlite'
-INDEX = ROOT / 'data' / 'audio_index.json'
+INDEX = ROOT / 'data' / 'scene_six_v1' / 'audio_index.json'
 CHAT_LOCK = threading.RLock()
 _cache = {}; _mtime = None; _index_meta = {}
 _job_manager = None
@@ -62,20 +64,22 @@ def records():
 
 def index():
     global _cache, _mtime, _index_meta
-    if not INDEX.exists(): return {}
+    if not INDEX.exists():
+        _cache={};_mtime=None;_index_meta={}
+        return {}
     stamp = INDEX.stat().st_mtime_ns
     if stamp != _mtime:
-        data = json.loads(INDEX.read_text(encoding='utf-8'))
+        data = load_index(INDEX)
         _cache = data['items']; _mtime = stamp
-        _index_meta = {k: data[k] for k in ('version', 'identity') if k in data}
+        _index_meta = {k: data[k] for k in ('version', 'identity', 'label_version', 'model_version', 'split_id') if k in data}
     return _cache
 
 
 def public(s):
     if s.get('schema_version') != dialogue.SCHEMA_VERSION:
         return {'id': s['id'], 'filename': s.get('filename'), 'created': s['created'], 'legacy': True,
-                'result': s.get('result'), 'note': '旧版会话按原方法归档；不能直接继续新版意图库问答。'}
-    fields = ('id', 'schema_version', 'filename', 'created', 'phase', 'analysis', 'initial_intents',
+                'result': s.get('result'), 'analysis':s.get('analysis'), 'label_version':s.get('label_version') or (s.get('analysis') or {}).get('context',{}).get('label_version','scene-eight-v1-legacy'), 'note': '旧版会话按原方法归档；不能直接继续新版意图库问答。'}
+    fields = ('id', 'label_version', 'schema_version', 'filename', 'created', 'phase', 'analysis', 'initial_intents',
               'dialogue', 'result', 'errors', 'source', 'prediction_mode', 'contaminated', 'candidate_rounds', 'candidate_version', 'pre_observations', 'round_context', 'catalog_version', 'prompt_version', 'experiment_mode', 'generation_reason', 'emotion_summary', 'rule_context', 'rules_version', 'question_budget', 'prompt_versions_used', 'context_first', 'request_understanding')
     out = {key: s.get(key) for key in fields}
     out['has_reference'] = s.get('gold') in LABELS
@@ -98,7 +102,7 @@ def analyze_upload(raw, filename, progress=None):
             progress('context', '场景：未命中缓存，正在检查并执行实时模型；首次加载可能较慢。')
             row = live_audio.predict_bytes(raw, filename)
         else:
-            progress('context', '场景：已命中 DEV 缓存，正在读取八类决策分数。')
+            progress('context', '场景：已命中 DEV 缓存，正在读取六类决策分数。')
         context = contract.context_result(row, _index_meta)
     except Exception as exc:
         context = failed('场景分析', exc)
@@ -113,7 +117,7 @@ def analyze_upload(raw, filename, progress=None):
     with connect() as c: seen = c.execute('SELECT sha FROM revealed WHERE sha=?', (digest,)).fetchone() is not None
     s = {'id': secrets.token_urlsafe(20), 'schema_version': dialogue.SCHEMA_VERSION,
          'sha': digest, 'filename': filename[:160], 'created': time.time(), 'source': 'unknown',
-         'gold': row.get('actual') if row else None, 'contaminated': seen, 'revealed': False,
+         'gold': row.get('target_six') if row else None, 'original_scene_label':row.get('actual_original') if row else None, 'label_version':LABEL_VERSION, 'contaminated': seen, 'revealed': False,
          'prediction_mode': context.get('source'), 'analysis': analysis,
          'phase': 'analyzed' if analysis['ready'] else 'blocked',
          'initial_intents': [], 'dialogue': None, 'result': None, 'errors': [], 'catalog_version':dialogue.CATALOG['version'], 'prompt_version':dialogue.PROMPT_VERSION, 'candidate_rounds':[], 'candidate_version':1, 'experiment_mode':'C'}
@@ -285,6 +289,15 @@ def chat_request(path, data):
             raise
 
 
+def export_record(s):
+    out={k:v for k,v in s.items() if k not in ('gold','original_scene_label','row','synthetic','last_parse','text')}
+    if s.get('schema_version')!=dialogue.SCHEMA_VERSION:
+        out['label_version']=s.get('label_version') or (s.get('analysis') or {}).get('context',{}).get('label_version','scene-eight-v1-legacy')
+        if s.get('row'):
+            out['legacy_model_row']={k:v for k,v in s['row'].items() if k not in ('actual','gold','target_six','actual_original')}
+    return out
+
+
 def summaries(rs):
     legacy = [s for s in rs if not s.get('schema_version','').startswith('intent-session-')]
     return {'intent_summary': dialogue.summary(rs),
@@ -321,17 +334,19 @@ class Handler(BaseHTTPRequestHandler):
                 error = ''; models = []
                 try: models = deepseek_models()
                 except ValueError as exc: error = str(exc)
+                try: cache_count=len(index());cache_status={'ready':bool(cache_count),'message':'六分类 OOF 缓存已验证' if cache_count else '六分类 OOF 缓存尚未准备'}
+                except (ValueError,KeyError,TypeError,OSError) as exc: cache_count=0;cache_status={'ready':False,'message':str(exc)}
                 return self.send(200, {'app_version': APP_VERSION, 'llm_models': models, 'deepseek_configured': bool(models),
                                       'llm_error': error, 'live_audio': live_audio.status(), 'emotion': emotion_audio.status(),
-                                      'audio_count': len(index()), 'max_questions': dialogue.MAX_QUESTIONS,'prompt_version':dialogue.PROMPT_VERSION,'policy':dialogue.context_policy.POLICY})
+                                      'audio_count': cache_count, 'cache_status':cache_status, 'scene_schema':public_config(), 'max_questions': dialogue.MAX_QUESTIONS,'prompt_version':dialogue.PROMPT_VERSION,'policy':dialogue.context_policy.POLICY})
             if path == '/api/history':
                 rs = records()
                 return self.send(200, {'records': [public(s) for s in sorted(rs, key=lambda x: x['created'], reverse=True)], **summaries(rs)})
             if path == '/api/export':
                 rs = records()
                 # Export all v9 attempts, including blocked/incomplete sessions, but never hidden reference labels.
-                exports = [{k: v for k, v in s.items() if k not in ('gold', 'row', 'synthetic', 'last_parse', 'text')} for s in rs]
-                return self.send(200, {'version': 'pawtalk-intent-v11', 'records': exports, **summaries(rs)})
+                exports = [export_record(s) for s in rs]
+                return self.send(200, {'version': 'pawtalk-scene-six-v1', 'scene_schema':public_config(), 'records': exports, **summaries(rs)})
             allowed = {'/': 'index.html', '/index.html': 'index.html', '/app.js': 'app.js', '/recorder.js': 'recorder.js',
                        '/style.css': 'style.css', '/manifest.webmanifest': 'manifest.webmanifest', '/icon.svg': 'icon.svg'}
             if path not in allowed: return self.send(404, {'error': 'Not found'})
@@ -364,14 +379,15 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/reveal':
                 with CHAT_LOCK:
                     s = get(str(data.get('id', '')))
+                    if s.get('schema_version')!=dialogue.SCHEMA_VERSION:raise ValueError('旧记录保留原标签体系，请从历史导出查看。')
                     if not s.get('result'): raise ValueError('仅在探索结束后可查看场景参考标签。')
                     if s.get('gold') not in LABELS: raise ValueError('此录音没有场景参考标签。')
                     s['revealed'] = True
                     with connect() as c: c.execute('INSERT OR IGNORE INTO revealed VALUES (?)', (s['sha'],))
                     save(s)
-                    return self.send(200, {'scene_reference': NAMES[s['gold']], 'note': '仅为八类活动参考，不能作为意图标准答案。'})
+                    return self.send(200, {'scene_reference': NAMES[s['gold']], 'note': '仅为六类活动参考，不能作为意图标准答案。'})
             if path in ('/api/demo', '/api/generate', '/api/parse', '/api/predict'):
-                return self.send(410, {'error': '旧版模拟背景、预设候选和场景融合接口已停用，v11 使用真实双路分析与独立意图流程。'})
+                return self.send(410, {'error': '旧版模拟背景、预设候选和场景融合接口已停用，当前版本使用真实双路分析与独立意图流程。'})
             self.send(404, {'error': 'Not found'})
         except (ValueError, KeyError, TypeError) as exc: self.send(400, {'error': str(exc)})
         except Exception as exc: self.send(500, {'error': '处理失败：' + str(exc)})

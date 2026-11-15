@@ -5,6 +5,7 @@ import context_policy
 from pathlib import Path
 from analysis_contract import prompt_analysis,AROUSAL,VALENCE
 from engine import LABELS,NAMES
+from scene_schema import public_config
 from llm_client import chat_json
 from legacy_intent_v1 import text,strings,unknown_answer as legacy_unknown_answer
 def unknown_answer(answer):
@@ -13,9 +14,9 @@ ROOT=Path(__file__).resolve().parent
 CATALOG=json.loads((ROOT/'intent_catalog.json').read_text(encoding='utf-8'))
 CATALOG_BY_ID={i['intent_id']:i for i in CATALOG['intents']}
 BASE_PROMPT=(ROOT/'intent_system_v4.txt').read_text(encoding='utf-8')
-PROMPT_VERSION='intent-interview-4.0'
-SCHEMA_VERSION='intent-session-v3'
-METHOD='catalog-intent-v3'
+PROMPT_VERSION='intent-interview-six-1.0'
+SCHEMA_VERSION='intent-session-six-v1'
+METHOD='catalog-intent-six-v1'
 MAX_QUESTIONS=3
 STATUSES={'possible','supported','excluded','subsumed'}
 
@@ -64,7 +65,7 @@ def call(stage,analysis,model,extra, schema,mode='C'):
     clean=input_analysis(analysis,mode)
     derived=rules.derive(analysis,mode)
     payload={'stage':stage,'phase':'initial' if stage=='generate_intents' and not extra.get('history') else ('regenerate' if stage=='generate_intents' else 'update'),
-             'intent_catalog':CATALOG,'intent_catalog_version':CATALOG['version'],'prompt_version':PROMPT_VERSION,
+             'scene_schema':public_config(), 'intent_catalog':CATALOG,'intent_catalog_version':CATALOG['version'],'prompt_version':PROMPT_VERSION,
              'rules_version':rules.VERSION,'question_templates':rules.QUESTIONS,'question_templates_version':rules.QUESTIONS['version'],
              'analysis':clean,'scene_result':clean.get('context'),'emotion_result':clean.get('emotion'),
              'emotion_summary':derived['emotion_summary'] if mode=='C' else None,'rule_context':derived['rule_context'],

@@ -1,7 +1,7 @@
 """Label-conditioned fictional contexts. Never factual annotation or held-out evidence."""
 import argparse,csv,json,random
 from pathlib import Path
-from engine import NAMES,ollama_models
+from legacy_scene_engine import NAMES,ollama_models
 from llm_client import chat_json
 import urllib.request
 TEMPLATES={

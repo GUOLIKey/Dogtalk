@@ -12,7 +12,7 @@ def status():
         expected=json.loads((HERE/'emotion_assets.json').read_text(encoding='utf-8'))
         ready=Path(config['python']).is_file() and config.get('recipe')==expected['recipe'] and all((ASSETS/name).is_file() for name in expected['files'])
     except (OSError,ValueError,KeyError,TypeError):ready=False
-    return {'ready':ready,'message':'情绪模型已准备（实验）' if ready else '情绪模块待准备：运行 08_ENABLE_EMOTION.bat；v11 综合意图需要两路均完成。'}
+    return {'ready':ready,'message':'情绪模型已准备（实验）' if ready else '情绪模块待准备：运行 08_ENABLE_EMOTION.bat；综合意图需要两路均完成。'}
 
 def disabled():return {'enabled':False,'available':False,'message':'本次未使用情绪模型。'}
 

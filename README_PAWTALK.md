@@ -1,3 +1,5 @@
+> 当前六分类分支说明见 [README_SIX_SCENES.md](PawTalk_Web_Clean/README_SIX_SCENES.md)。以下是原 v12 交付说明，八类/32规则和“未改运行逻辑”仅描述历史版本。
+
 # PawTalk v12：程序、双数据集与最新设计说明
 
 本分支基于 `GUOLIKey/Dogtalk` 的 `b186c8599ea5a3123c3e4ea9837cfa1cdd61d1bd`，保留原始 `README.md`，不修改 `main`。程序来自 `PawTalk_Web_Intent_v12_Full.zip`，不更改原版运行逻辑。

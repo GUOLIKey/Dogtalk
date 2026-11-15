@@ -1,5 +1,6 @@
 """Offline A/B/C paired evaluation with independent, explicitly supplied reference sets."""
 import argparse,json,hashlib
+from dialogue import SCHEMA_VERSION
 
 def evaluate(records,references):
     refs={r['sha']:r for r in references};eligible={};excluded={}
@@ -7,7 +8,7 @@ def evaluate(records,references):
         ref=refs.get(s.get('sha'));reason=None
         if not ref or not ref.get('reference_clear'):reason='missing_or_unclear_independent_reference'
         elif not ref.get('dog_id') or not ref.get('source_id'):reason='missing_group_identity'
-        elif not s.get('result') or s.get('schema_version')!='intent-session-v3':reason='incomplete_or_old_method'
+        elif not s.get('result') or s.get('schema_version')!=SCHEMA_VERSION:reason='incomplete_or_old_method'
         elif s.get('contaminated') or s.get('source')!='real':reason='not_blind_real_observation'
         if reason:excluded[reason]=excluded.get(reason,0)+1;continue
         eligible.setdefault((s['sha'],s.get('experiment_mode','C')),s)

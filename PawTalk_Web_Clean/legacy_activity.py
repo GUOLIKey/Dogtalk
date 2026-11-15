@@ -1,5 +1,5 @@
 """Read-only v8 scene metrics; never used for v9 inference."""
-from engine import LABELS
+from legacy_scene_engine import LABELS
 METHOD = "adaptive-dual-v3"
 
 def summary(records):

@@ -1,0 +1,35 @@
+{
+  "label_version": "scene-six-v1",
+  "model_version": "mfcc-clap-svm-six-v1",
+  "dev_count": 9984,
+  "dev_audio_missing": 9984,
+  "dev_missing_examples": [
+    "data/extracted/train/split1/split1/audio_02407.wav",
+    "data/extracted/train/split1/split1/audio_04080.wav",
+    "data/extracted/train/split1/split1/audio_01256.wav"
+  ],
+  "lfs_pointer_count": 1404,
+  "lfs_pointer_examples": [
+    "datasets/Barkopedia_Dog_Act_Env/train/split2.zip",
+    "datasets/Barkopedia_Dog_Act_Env/train/split1.zip",
+    "datasets/Barkopedia_Dog_Act_Env/test/test.zip"
+  ],
+  "feature_package_available": false,
+  "locked_holdout_manifest_available": false,
+  "six_model_available": false,
+  "emotion_runtime_available": false,
+  "deepseek_config_file_available": false,
+  "dependencies": {
+    "numpy": true,
+    "sklearn": true,
+    "joblib": true,
+    "soundfile": true,
+    "librosa": true,
+    "torch": false,
+    "transformers": false
+  },
+  "training_executed": false,
+  "api_called": false,
+  "holdout_decoded_or_scored": false,
+  "note": "存在 LFS 指针不等于音频已下载；情绪数据不能替代八类活动训练数据。此检查不验证权重/API 的运行有效性。"
+}

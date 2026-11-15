@@ -9,14 +9,14 @@ import sys
 import webbrowser
 
 ROOT = Path(__file__).resolve().parent
-VERSION = 'PawTalk Web Intent v12'
+VERSION = 'PawTalk Web Six Scenes v1'
 
 def verify_install(root=ROOT):
     manifest=json.loads((root/'build_manifest.json').read_text(encoding='utf-8'))
     for name,expected in manifest['sha256'].items():
         path=root/name
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=expected:
-            raise ValueError('程序文件缺失或版本混用：'+name+'。请重新完整解压 Intent v12，不要复制旧代码。')
+            raise ValueError('程序文件缺失或版本混用：'+name+'。请重新完整解压 Six Scenes v1，不要复制旧代码。')
 
 def bind_server(handler,preferred=8882):
     from http.server import ThreadingHTTPServer
@@ -39,14 +39,15 @@ def main():
     import engine
     import llm_client
     if engine.ollama_models is not llm_client.available_models or engine.chat_json is not llm_client.chat_json:
-        raise ValueError('语言模型程序版本混用，请完整解压 Intent v12。')
+        raise ValueError('语言模型程序版本混用，请完整解压 Six Scenes v1。')
     try:
         key,model=llm_client.config()
         print('DeepSeek：'+('已读取本文件夹的密钥，实际调用时验证。' if key else '请运行 04_SET_DEEPSEEK.bat 填写密钥。'),flush=True)
     except ValueError as exc:print('DeepSeek 配置提示：'+str(exc),flush=True)
-    index_path=ROOT/'data'/'audio_index.json'
+    index_path=ROOT/'data'/'scene_six_v1'/'audio_index.json'
     if index_path.exists():
-        count=len(json.loads(index_path.read_text(encoding='utf-8'))['items'])
+        from scene_cache import load_index
+        count=len(load_index(index_path)['items'])
         print(f'音频已就绪：{count} 条。',flush=True)
     else:print('数据集索引尚未准备；只有需要原 DEV 验证回放时才运行 01。',flush=True)
     import live_audio

@@ -3,7 +3,8 @@ import json, math
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 def load(name):return json.loads((ROOT/name).read_text(encoding='utf-8'))
-BUSINESS=load('model_business_ids.json');SCENES=BUSINESS['scenes'];QUADRANTS=BUSINESS['quadrants']
+from scene_schema import SCENES as SCENE_ROWS, LABEL_VERSION
+SCENES={r['id']:r for r in SCENE_ROWS};QUADRANTS=load('emotion_quadrants.json')['quadrants']
 CONFIG=load('intent_link_rules.json');QUESTIONS=load('question_templates.json')
 RULES={r['rule_id']:r for r in CONFIG['rules']}
 VERSION=CONFIG['rules_version'];MAPPING_VERSION='quadrant-v0.2';USABLE_VERSION='dogbark-max0.60-margin0.15-agreement0.60-v1'
@@ -13,8 +14,8 @@ def reverse_index():
                      'pool':[r['rule_id'] for r in RULES.values() if f'I0{i}' in r['candidate_pool']]} for i in range(1,7)}
 
 def validate_config():
-    expected={f'A{a}-E{e}' for a in range(1,9) for e in range(1,5)}
-    if len(CONFIG['rules'])!=32 or set(RULES)!=expected:raise ValueError('32 条规则缺失、重复或 ID 非法。')
+    expected={f'S{a:02d}-E{e}' for a in range(1,7) for e in range(1,5)}
+    if CONFIG.get('label_version')!=LABEL_VERSION or len(CONFIG['rules'])!=24 or set(RULES)!=expected:raise ValueError('24 条六场景规则缺失、重复或版本非法。')
     ids={i['intent_id'] for i in load('intent_catalog.json')['intents']}
     for key,r in RULES.items():
         if key!=r['scene_id']+'-'+r['emotion_id'] or r['observation_required'] is not True:raise ValueError('规则入口配置不一致。')
