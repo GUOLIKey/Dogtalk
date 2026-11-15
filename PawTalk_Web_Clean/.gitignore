@@ -11,3 +11,6 @@ EMOTION_SETUP_ERROR.txt
 *.pyc
 results/scene_six_v1/trained*/
 results/scene_six_v1/historical_audit/mapped_predictions.csv
+results/scene_six_v1/training.lock
+results/scene_six_v1/historical_audit/report.html
+results/scene_six_v1/historical_audit/summary.txt

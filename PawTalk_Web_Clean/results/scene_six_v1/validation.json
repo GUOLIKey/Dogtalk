@@ -35,5 +35,15 @@
   "real_deepseek_api": "not_executed: no configuration",
   "archived_oof_evaluation": "executed on real tracked DEV labels/predictions; no model rerun",
   "holdout_decoded_fitted_scored_or_tuned": false,
-  "semantic_validation_limit": "Quote/structure checks do not establish full semantic correctness or true canine intent."
+  "semantic_validation_limit": "Quote/structure checks do not establish full semantic correctness or true canine intent.",
+  "one_click_update": {
+    "python_existing_tests": 110,
+    "python_new_tests": 29,
+    "result": "passed",
+    "windows_bat_execution": "not_tested_on_windows",
+    "report_generation": "real archived metrics rendered successfully",
+    "missing_resource_check": "executed and correctly stopped before feature extraction/training",
+    "real_six_class_metrics": "not_available",
+    "real_deepseek_api": "not_called"
+  }
 }

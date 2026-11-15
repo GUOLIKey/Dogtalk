@@ -97,6 +97,8 @@ S03 单独重写，不平均旧三类规则；模型不知道对象是人、动�
 
 ## 6. Windows 准备与启动
 
+新增双击入口：09_TRAIN_SIX_AND_SHOW_F1.bat（检查、训练、安装并显示结果）、10_VIEW_SCENE_RESULTS.bat（查看最近完成的结果）、11_TRAIN_FROM_AUDIO.bat（明确重新提取音频特征的备用路线）。逐步操作见 START_HERE_SIX_F1.md。下方命令行仍可使用。
+
 先备份原程序目录、关闭旧运行窗口。将新版 PawTalk_Web_Clean **里面的内容**覆盖到原同名文件夹里面，不能再嵌套一层；保留旧模型、数据、密钥和历史。本版需要新的真实六类模型，旧版“无需重训”的说明不再适用。
 
 以下在原 `PawTalk_Web_Clean` 目录的 PowerShell 执行。沿用原来能跑模型的 `..\.venv`，不要直接升级现有推理环境；路径不同则替换 Python 路径。
