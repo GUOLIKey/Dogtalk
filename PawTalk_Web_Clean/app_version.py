@@ -1,1 +1,1 @@
-APP_VERSION = 'PawTalk Web Six Scenes v1 + Emotion E4'
+APP_VERSION = 'PawTalk UI 2 · Six Scenes + Emotion E4'

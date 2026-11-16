@@ -2,6 +2,7 @@
 import argparse,hashlib,json,os,shutil,tempfile,uuid
 from datetime import datetime
 from pathlib import Path
+from app_version import APP_VERSION
 PROTECTED={'data','models','state','.venv','.venv_emotion','.venv_emotion_e4','.hf_cache','DEEPSEEK_CONFIG.ini'}
 def install(source,target):
     source=Path(source).resolve();target=Path(target).resolve()
@@ -46,9 +47,9 @@ def main():
         root.destroy()
     if not target:print('未选择文件夹，没有修改。');return
     backup=install(Path(__file__).resolve().parent,target)
-    print('更新完成：PawTalk Web Six Scenes + Emotion E4')
+    print('更新完成：'+APP_VERSION)
     print('程序备份：',backup)
-    print('密钥、模型、数据与历史记录均保留。先在原文件夹运行08启用E4，再运行00。')
+    print('密钥、模型、数据与历史记录均保留。已启用E4时直接运行00；首次启用E4才需要运行08。')
 if __name__=='__main__':
     try:main()
     except Exception as exc:

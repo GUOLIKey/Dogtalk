@@ -16,7 +16,7 @@ from test_context_first_v12 import gen, update
 def main():
     import argparse
     from playwright.sync_api import sync_playwright
-    parser=argparse.ArgumentParser();parser.add_argument('--browser-executable');parser.add_argument('--real-emotion',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--browser-executable');parser.add_argument('--real-emotion',action='store_true');parser.add_argument('--screenshots');args=parser.parse_args()
     calls=[]
     def llm(model,messages,**kwargs):
         payload=json.loads(messages[1]['content']);calls.append(payload)
@@ -45,6 +45,8 @@ def main():
             emotion_patch=patch.object(server.emotion_audio,'predict_bytes',return_value=copy.deepcopy(EMOTION))
         with patch.object(server,'DB',Path(td)/'sessions.sqlite'),patch.object(server,'index',return_value={}),\
              patch.object(server.live_audio,'predict_bytes',return_value=dict(copy.deepcopy(ROW),prediction_mode='live')),\
+             patch.object(server.live_audio,'status',return_value={'ready':True,'message':'mock scene ready'}),\
+             patch.object(server.emotion_audio,'status',return_value={'ready':True,'message':'test emotion ready'}),\
              emotion_patch,\
              patch.object(server,'deepseek_models',return_value=['DeepSeek::mock']),patch.object(dialogue,'chat_json',side_effect=llm):
             httpd=start_app.bind_server(server.Handler,0);t=threading.Thread(target=httpd.serve_forever,daemon=True);t.start()
@@ -56,13 +58,25 @@ def main():
                     page.wait_for_function("document.getElementById('llmSelect').value !== ''")
                     assert page.locator('#buildVersion').inner_text()==server.APP_VERSION
                     assert not page.locator('#versionWarning').is_visible()
+                    assert page.locator('#inputDetails').get_attribute('open') is not None
+                    assert not page.locator('#modelDetails').is_visible()
+                    if args.screenshots:
+                        shots=Path(args.screenshots);shots.mkdir(parents=True,exist_ok=True)
+                        page.screenshot(path=str(shots/'desktop-empty.png'),full_page=True)
                     page.locator('#audioFile').set_input_files({'name':'mock_home.wav','mimeType':'audio/wav','buffer':upload})
+                    page.locator('#generateIntents').wait_for(state='visible')
+                    assert page.locator('#modelDetails').get_attribute('open') is None
+                    page.locator('#modelDetails > summary').click()
                     page.locator('#sceneScores tr').nth(6).wait_for()
                     assert page.locator('#sceneScores tr').count()==7
                     assert '玩耍相关情境' in page.locator('#sceneScores').inner_text()
                     assert '与人玩耍' not in page.locator('#sceneScores').inner_text()
+                    page.locator('#modelDetails > summary').click()
                     page.locator('#generateIntents').click()
                     page.locator('#unknownBtn').wait_for()
+                    assert page.locator('#inputDetails').get_attribute('open') is None
+                    assert page.locator('#currentQuestion').evaluate('(el)=>document.activeElement===el')
+                    if args.screenshots:page.screenshot(path=str(shots/'desktop-question.png'),full_page=True)
                     for n in range(3):
                         page.locator('#unknownBtn').click()
                         page.wait_for_function('(n)=>document.querySelectorAll("#chatLog .chatTurn").length===n',arg=n+1)
@@ -84,6 +98,14 @@ def main():
                     for width in (1440,390):
                         page.set_viewport_size({'width':width,'height':900})
                         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1')
+                        if args.screenshots:page.screenshot(path=str(shots/f'result-{width}.png'),full_page=True)
+                    page.locator('#tabRecords').click()
+                    page.locator('#historyList button').wait_for()
+                    assert page.locator('#tabRecords').get_attribute('aria-current')=='page'
+                    page.locator('#historyList button').click()
+                    page.locator('#resultCard').wait_for()
+                    page.locator('#nextBtn').click()
+                    page.locator('#dropzone').wait_for()
                     browser.close()
             finally:httpd.shutdown();httpd.server_close();t.join()
     print('PASS: real Chromium upload, six score rows, context-first generation, three unknown answers, uncertain result, export and desktop/mobile widths. Scene/DeepSeek mocked. Emotion: '+('real packaged E4 subprocess on synthetic WAV' if args.real_emotion else 'mocked')+'. No model quality claim.')

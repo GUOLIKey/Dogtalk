@@ -1,5 +1,7 @@
 # Dogtalk — six-scene development branch
 
+界面已更新为 UI 2：分析与记录。布局、可访问性及验证说明见 [UI 更新说明](PawTalk_Web_Clean/UI2_NOTES.md)。
+
 最新情绪更新：**E4 rich153 + RBF SVM**。启动、分数含义及验证边界见
 [E4 更新说明](PawTalk_Web_Clean/README_E4.md)。已保留场景分支与历史 DogBark 记录。
 

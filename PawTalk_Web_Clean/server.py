@@ -348,7 +348,8 @@ class Handler(BaseHTTPRequestHandler):
                 exports = [export_record(s) for s in rs]
                 return self.send(200, {'version': 'pawtalk-scene-six-v1', 'scene_schema':public_config(), 'records': exports, **summaries(rs)})
             allowed = {'/': 'index.html', '/index.html': 'index.html', '/app.js': 'app.js', '/recorder.js': 'recorder.js',
-                       '/style.css': 'style.css', '/manifest.webmanifest': 'manifest.webmanifest', '/icon.svg': 'icon.svg'}
+                       '/style.css': 'style.css', '/manifest.webmanifest': 'manifest.webmanifest', '/icon.svg': 'icon.svg',
+                       '/presentation.js': 'presentation.js', '/icons.svg': 'icons.svg'}
             if path not in allowed: return self.send(404, {'error': 'Not found'})
             p = ROOT / 'static' / allowed[path]
             mime = {'.html': 'text/html; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json'}[p.suffix]

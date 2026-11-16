@@ -10,7 +10,7 @@
 2. 在原 `PawTalk_Web_Clean` 目录更新程序文件，保留原有 `.venv`、`models`、`data`、`state` 和本地 DeepSeek 配置。先备份原程序目录，不要删除模型和数据。
 3. 双击 `08_ENABLE_EMOTION.bat`。它校验包内 E4 权重，创建独立 `.venv_emotion_e4`、安装锁定依赖并执行模型自检。不下载训练集，不重跑实验，不需要 TensorFlow 或 GPU。
 4. 出现 `READY：E4情绪模型已启用` 后，双击 `00_START_APP.bat`，使用本次窗口给出的地址。
-5. 页面、启动器和后端统一显示 `PawTalk Web Six Scenes v1 + Emotion E4`。上传新录音后，情绪来源应为 `E4 rich153 + RBF SVM`，模型版本为 `emotion-e4-rich153-svm-v1`。
+5. 页面、启动器和后端统一显示 `PawTalk UI 2 · Six Scenes + Emotion E4`。上传新录音后，情绪来源应为 `E4 rich153 + RBF SVM`，模型版本为 `emotion-e4-rich153-svm-v1`。
 
 `08` 沿用项目原先的 `..\.venv\Scripts\python.exe` 启动入口，需要原主环境仍存在。
 若仅全新下载本仓库而没有本地场景权重/DEV 索引，它们仍需按 `README_SIX_SCENES.md` 准备。
