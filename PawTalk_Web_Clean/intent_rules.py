@@ -4,6 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 def load(name):return json.loads((ROOT/name).read_text(encoding='utf-8'))
 from scene_schema import SCENES as SCENE_ROWS, LABEL_VERSION
+from analysis_contract import validate_emotion_axis
 SCENES={r['id']:r for r in SCENE_ROWS};QUADRANTS=load('emotion_quadrants.json')['quadrants']
 CONFIG=load('intent_link_rules.json');QUESTIONS=load('question_templates.json')
 RULES={r['rule_id']:r for r in CONFIG['rules']}
@@ -31,11 +32,10 @@ def emotion_summary(emotion):
     if emotion.get('available') is not True:out['reason_codes']=['model_unavailable'];return out
     tied=[];unusable=[]
     for axis,labels in (('arousal',{'Low','Medium','High'}),('valence',{'Negative','Neutral','Positive'})):
-        item=emotion.get(axis,{ });scores=item.get('scores',{})
-        if (set(scores)!=labels or any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=1 for v in scores.values())
-            or abs(sum(scores.values())-1)>1e-4 or type(item.get('usable')) is not bool or item.get('label') not in scores
-            or scores[item['label']]!=max(scores.values())):
-            out['reason_codes']=['invalid_'+axis];return out
+        try:item=validate_emotion_axis(emotion.get(axis,{}),tuple(sorted(labels)),emotion.get('model_version'))
+        except (ValueError,KeyError,TypeError):out['reason_codes']=['invalid_'+axis];return out
+        scores=item['scores']
+        if item.get('usability_policy'):out['usable_version']=item['usability_policy']
         out['axis_labels'][axis]=item['label']
         if sum(abs(v-max(scores.values()))<1e-12 for v in scores.values())>1:tied.append(axis+'_tied_max')
         if not item['usable']:unusable.append(axis+'_not_usable')

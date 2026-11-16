@@ -1,5 +1,8 @@
 # Dogtalk — six-scene development branch
 
+最新情绪更新：**E4 rich153 + RBF SVM**。启动、分数含义及验证边界见
+[E4 更新说明](PawTalk_Web_Clean/README_E4.md)。已保留场景分支与历史 DogBark 记录。
+
 基于 `GUOLIKey/Dogtalk` 的 `pawtalk-v12-two-datasets-20261115`，在独立分支实施六分类改造。
 
 当前入口：[PawTalk_Web_Clean/README_SIX_SCENES.md](PawTalk_Web_Clean/README_SIX_SCENES.md)，包含标签、24规则、训练评估、启动命令及真实验证边界。

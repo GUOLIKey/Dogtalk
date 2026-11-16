@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parent
 CATALOG=json.loads((ROOT/'intent_catalog.json').read_text(encoding='utf-8'))
 CATALOG_BY_ID={i['intent_id']:i for i in CATALOG['intents']}
 BASE_PROMPT=(ROOT/'intent_system_v4.txt').read_text(encoding='utf-8')
-PROMPT_VERSION='intent-interview-six-1.0'
+PROMPT_VERSION='intent-interview-six-e4-1.0'
 SCHEMA_VERSION='intent-session-six-v1'
 METHOD='catalog-intent-six-v1'
 MAX_QUESTIONS=3

@@ -23,7 +23,7 @@ from llm_client import config as llm_config
 
 from scene_schema import LABEL_VERSION, ORIGINAL_TO_SIX, public_config
 from scene_cache import load_index
-APP_VERSION = 'PawTalk Web Six Scenes v1'
+from app_version import APP_VERSION
 ROOT = Path(__file__).resolve().parent
 STATE = ROOT / 'state'; STATE.mkdir(exist_ok=True, parents=True)
 DB = STATE / 'sessions.sqlite'

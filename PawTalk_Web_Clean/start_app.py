@@ -9,14 +9,14 @@ import sys
 import webbrowser
 
 ROOT = Path(__file__).resolve().parent
-VERSION = 'PawTalk Web Six Scenes v1'
+from app_version import APP_VERSION as VERSION
 
 def verify_install(root=ROOT):
     manifest=json.loads((root/'build_manifest.json').read_text(encoding='utf-8'))
     for name,expected in manifest['sha256'].items():
         path=root/name
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=expected:
-            raise ValueError('程序文件缺失或版本混用：'+name+'。请重新完整解压 Six Scenes v1，不要复制旧代码。')
+            raise ValueError('程序文件缺失或版本混用：'+name+'。请重新完整解压 E4 更新版本，不要复制旧代码。')
 
 def bind_server(handler,preferred=8882):
     from http.server import ThreadingHTTPServer
@@ -39,7 +39,7 @@ def main():
     import engine
     import llm_client
     if engine.ollama_models is not llm_client.available_models or engine.chat_json is not llm_client.chat_json:
-        raise ValueError('语言模型程序版本混用，请完整解压 Six Scenes v1。')
+        raise ValueError('语言模型程序版本混用，请完整解压 E4 更新版本。')
     try:
         key,model=llm_client.config()
         print('DeepSeek：'+('已读取本文件夹的密钥，实际调用时验证。' if key else '请运行 04_SET_DEEPSEEK.bat 填写密钥。'),flush=True)

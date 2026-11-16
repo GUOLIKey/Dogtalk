@@ -1,0 +1,263 @@
+{
+  "n": 1200,
+  "accuracy": 0.43666666666666665,
+  "macro_f1": 0.4298706347608084,
+  "labels": [
+    "Negative",
+    "Neutral",
+    "Positive"
+  ],
+  "per_class": {
+    "Negative": {
+      "precision": 0.40384615384615385,
+      "recall": 0.42424242424242425,
+      "f1-score": 0.41379310344827586,
+      "support": 297.0
+    },
+    "Neutral": {
+      "precision": 0.40591397849462363,
+      "recall": 0.371007371007371,
+      "f1-score": 0.38767650834403083,
+      "support": 407.0
+    },
+    "Positive": {
+      "precision": 0.4786821705426357,
+      "recall": 0.49798387096774194,
+      "f1-score": 0.4881422924901186,
+      "support": 496.0
+    },
+    "accuracy": 0.43666666666666665,
+    "macro avg": {
+      "precision": 0.42948076762780435,
+      "recall": 0.43107788873917907,
+      "f1-score": 0.4298706347608084,
+      "support": 1200.0
+    },
+    "weighted avg": {
+      "precision": 0.43547971127397234,
+      "recall": 0.43666666666666665,
+      "f1-score": 0.43566622307938113,
+      "support": 1200.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      126,
+      69,
+      102
+    ],
+    [
+      89,
+      151,
+      167
+    ],
+    [
+      97,
+      152,
+      247
+    ]
+  ],
+  "experiment": "E4_RICH_TUNED",
+  "axis": "valence",
+  "protocol": "nested_group_cv",
+  "extra": {
+    "selection_inside_outer_train": true,
+    "family_selection_included_in_E4": true,
+    "axis_total_seconds": 5.70549750328064
+  },
+  "folds": [
+    {
+      "fold": 1,
+      "n": 399,
+      "accuracy": 0.43609022556390975,
+      "macro_f1": 0.4192905378743648,
+      "labels": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "per_class": {
+        "Negative": {
+          "precision": 0.391304347826087,
+          "recall": 0.37894736842105264,
+          "f1-score": 0.3850267379679144,
+          "support": 95.0
+        },
+        "Neutral": {
+          "precision": 0.43137254901960786,
+          "recall": 0.3076923076923077,
+          "f1-score": 0.35918367346938773,
+          "support": 143.0
+        },
+        "Positive": {
+          "precision": 0.4585365853658537,
+          "recall": 0.5838509316770186,
+          "f1-score": 0.5136612021857924,
+          "support": 161.0
+        },
+        "accuracy": 0.43609022556390975,
+        "macro avg": {
+          "precision": 0.4270711607371828,
+          "recall": 0.4234968692634597,
+          "f1-score": 0.4192905378743648,
+          "support": 399.0
+        },
+        "weighted avg": {
+          "precision": 0.4327934280631194,
+          "recall": 0.43609022556390975,
+          "f1-score": 0.4276698219673857,
+          "support": 399.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          36,
+          20,
+          39
+        ],
+        [
+          27,
+          44,
+          72
+        ],
+        [
+          29,
+          38,
+          94
+        ]
+      ]
+    },
+    {
+      "fold": 2,
+      "n": 401,
+      "accuracy": 0.4339152119700748,
+      "macro_f1": 0.42408207720232965,
+      "labels": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "per_class": {
+        "Negative": {
+          "precision": 0.38613861386138615,
+          "recall": 0.3979591836734694,
+          "f1-score": 0.39195979899497485,
+          "support": 98.0
+        },
+        "Neutral": {
+          "precision": 0.352112676056338,
+          "recall": 0.42735042735042733,
+          "f1-score": 0.3861003861003861,
+          "support": 117.0
+        },
+        "Positive": {
+          "precision": 0.5379746835443038,
+          "recall": 0.45698924731182794,
+          "f1-score": 0.4941860465116279,
+          "support": 186.0
+        },
+        "accuracy": 0.4339152119700748,
+        "macro avg": {
+          "precision": 0.425408657820676,
+          "recall": 0.4274329527785749,
+          "f1-score": 0.42408207720232965,
+          "support": 401.0
+        },
+        "weighted avg": {
+          "precision": 0.4466385496165783,
+          "recall": 0.4339152119700748,
+          "f1-score": 0.43766685817061224,
+          "support": 401.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          39,
+          27,
+          32
+        ],
+        [
+          26,
+          50,
+          41
+        ],
+        [
+          36,
+          65,
+          85
+        ]
+      ]
+    },
+    {
+      "fold": 3,
+      "n": 400,
+      "accuracy": 0.44,
+      "macro_f1": 0.4407585611707609,
+      "labels": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "per_class": {
+        "Negative": {
+          "precision": 0.42857142857142855,
+          "recall": 0.49038461538461536,
+          "f1-score": 0.45739910313901344,
+          "support": 104.0
+        },
+        "Neutral": {
+          "precision": 0.4453125,
+          "recall": 0.3877551020408163,
+          "f1-score": 0.41454545454545455,
+          "support": 147.0
+        },
+        "Positive": {
+          "precision": 0.4444444444444444,
+          "recall": 0.4563758389261745,
+          "f1-score": 0.4503311258278146,
+          "support": 149.0
+        },
+        "accuracy": 0.44,
+        "macro avg": {
+          "precision": 0.439442791005291,
+          "recall": 0.44483851878386876,
+          "f1-score": 0.4407585611707609,
+          "support": 400.0
+        },
+        "weighted avg": {
+          "precision": 0.440636470734127,
+          "recall": 0.44,
+          "f1-score": 0.439017565732459,
+          "support": 400.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          51,
+          22,
+          31
+        ],
+        [
+          36,
+          57,
+          54
+        ],
+        [
+          32,
+          49,
+          68
+        ]
+      ]
+    }
+  ],
+  "fold_summary": {
+    "accuracy": {
+      "mean": 0.43666847917799484,
+      "std_sample": 0.003083333305682676
+    },
+    "macro_f1": {
+      "mean": 0.4280437254158185,
+      "std_sample": 0.011268983915563571
+    }
+  }
+}

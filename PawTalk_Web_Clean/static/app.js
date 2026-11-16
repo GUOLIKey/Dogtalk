@@ -35,8 +35,8 @@ function render(s) {
  $('sceneScores').replaceChildren();if(c.available)table($('sceneScores'),c.scores,c.labels);
  $('sceneSource').textContent=c.available?`${c.model} · ${c.source} · ${c.duration.toFixed(2)} 秒 · ${c.score_kind} · 标签 ${c.label_version} · 模型 ${c.model_version} · 缓存版本 ${c.cache_version||'不适用/未知'}`:'';
  $('emotionCard').hidden=false;$('emotionMessage').textContent=e.available?e.message:e.message||'情绪未完成';$('emotionAxes').replaceChildren();
- if(e.available)for(const [axis,name] of [['arousal','唤醒程度'],['valence','正负倾向']]){const x=e[axis],box=el('div',undefined,'emotionAxis');box.append(el('h3',name),el('p',`最高类 ${x.label} · usable=${x.usable} · ${x.usable?'可作辅助线索':'未达到使用门槛，保留不确定'}`));table(box,x.scores);box.append(el('p',`margin=${x.margin.toFixed(4)} · agreement=${x.agreement.toFixed(4)} · ${x.score_kind}`,'fine'));$('emotionAxes').append(box);}
- $('emotionSource').textContent=e.available?`${e.model} · ${e.source} · ${e.duration.toFixed(2)} 秒 · commit ${e.model_commit} · ${e.recipe}`:'';
+ if(e.available)for(const [axis,name] of [['arousal','唤醒程度'],['valence','正负倾向']]){const x=e[axis],box=el('div',undefined,'emotionAxis');box.append(el('h3',name),el('p',`${x.score_kind==='svm_decision_function_ovr'?'分类器首选':'最高类'} ${x.label} · usable=${x.usable} · ${x.usability_note||(x.usable?'可作辅助线索':'未达到使用门槛，保留不确定')}`));table(box,x.scores);box.append(el('p',`分数最大项 ${x.top_score_label||x.label} · 分差=${x.margin.toFixed(4)} · agreement=${x.agreement==null?'不适用（整段推理）':x.agreement.toFixed(4)} · ${x.score_kind}`,'fine'));$('emotionAxes').append(box);}
+ $('emotionSource').textContent=e.available?`${e.model} · ${e.source} · ${e.duration.toFixed(2)} 秒 · ${e.model_version||e.model_commit||'历史版本未知'} · ${e.recipe}`:'';
  $('ruleCard').hidden=false;const es=s.emotion_summary,rc=s.rule_context;
  $('quadrantSummary').textContent=es?`${es.quadrant_id||es.status} · ${es.name} · ${es.reason_codes.join(' / ')}`:'尚未生成派生摘要';
  $('ruleSummary').textContent=rc?`原始首选入口 ${rc.anchor_scene||'不可用'}；主规则 ${rc.primary_rule_id||'无'}；辅助 ${rc.matched_rule_ids.slice(1).join('、')||'无'}；回退 ${rc.fallback_id||'无'}；规则版本 ${rc.rules_version}`:'';
@@ -57,7 +57,7 @@ function render(s) {
  if(s.result){const r=s.result;
  if(r.uncertain&&r.alternatives){$('resultAlternatives').append(el('h3',r.alternatives.length?'当前仍值得考虑的可能（不是确定结论）':'目前没有足够依据列出合理解释'));for(const x of r.alternatives){const box=el('article',undefined,'intent');box.append(el('h3',x.title),el('p',x.reason),el('p','仍缺少：'+(x.missing_information||[]).join('；'),'fine'));for(const quote of refs(x.evidence))box.append(el('blockquote',quote));$('resultAlternatives').append(box);}}
 $('resultTitle').textContent=r.uncertain?'暂不确定':`当前更可能的意图：${r.title}`;$('resultReason').textContent=r.message+` 结束状态：${r.result_status||'旧版本'}；并存：${(r.coexisting_intent_ids||[]).map(id=>s.initial_intents.find(i=>i.intent_id===id)?.title||id).join('、')||'无明确项'}；被具体目标涵盖：${(r.subsumed_intent_ids||[]).map(id=>s.initial_intents.find(i=>i.intent_id===id)?.title||id).join('、')||'无'}`;bullets($('resultEvidence'),refs(r.supporting_observations).length?refs(r.supporting_observations):['尚无足以支持唯一结论的观察。']);
- $('resultClues').textContent=`场景原始首选：${c.original_preferred?.name||'不可用'}；情绪最高类：${e.arousal?.label||'不可用'} / ${e.valence?.label||'不可用'}（usable=${e.arousal?.usable} / ${e.valence?.usable}）。完整分数与来源保留在上方及导出中，均是预测。`;
+ $('resultClues').textContent=`场景原始首选：${c.original_preferred?.name||'不可用'}；情绪分类首选：${e.arousal?.label||'不可用'} / ${e.valence?.label||'不可用'}（usable=${e.arousal?.usable} / ${e.valence?.usable}）。完整分数与来源保留在上方及导出中，均是预测。`;
  bullets($('resultExcluded'),r.excluded_intents.length?r.excluded_intents.map(i=>`${i.title}：${i.reason}；${refs(i.evidence).join('；')}`):['没有候选获得明确排除依据。']);bullets($('resultUncertainty'),r.uncertainties);$('revealBtn').hidden=!s.has_reference;$('reference').textContent=s.scene_reference?`场景参考：${s.scene_reference}（不能作为意图标准答案）`:'';}
  controls();
 }
