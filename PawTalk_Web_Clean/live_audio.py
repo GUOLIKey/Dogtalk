@@ -5,8 +5,9 @@ from pathlib import Path
 HERE=Path(__file__).resolve().parent
 PROJECT=HERE.parent
 MODELS=HERE/'models'
-META=MODELS/'live_meta.json'
-MODEL=MODELS/'live_svm.joblib'
+from scene_schema import LABEL_VERSION, MODEL_VERSION, validate_metadata, validate_classes, score_dict
+META=MODELS/'scene_six_v1'/'live_meta.json'
+MODEL=MODELS/'scene_six_v1'/'live_svm.joblib'
 MODEL_ID='laion/clap-htsat-unfused'
 FEATURE_VERSION='mfcc30_full_clap512_first10s_raw_v1'
 MAX_BYTES=64*1024*1024
@@ -17,7 +18,11 @@ _runtime=None
 
 def status():
     ready=MODEL.is_file() and META.is_file()
-    return {'ready':ready,'loaded':_runtime is not None,'device':getattr(_runtime,'device',None),'max_seconds':MAX_SECONDS,'max_mb':64,'message':'新录音识别已准备' if ready else '请先运行 07_ENABLE_NEW_AUDIO.bat，启用新录音识别'}
+    error=''
+    if ready:
+        try:validate_metadata(json.loads(META.read_text(encoding='utf-8')))
+        except (ValueError,KeyError,TypeError) as exc:ready=False;error=str(exc)
+    return {'ready':ready,'loaded':_runtime is not None,'device':getattr(_runtime,'device',None),'max_seconds':MAX_SECONDS,'max_mb':64,'label_version':LABEL_VERSION,'model_version':MODEL_VERSION,'message':'六分类新录音识别已准备' if ready else error or '六分类模型缺失：请先运行 scene_training.py train；旧八类模型不会替代' }
 
 def media_format(raw):
     if raw.startswith(b'RIFF') and raw[8:12]==b'WAVE':return 'wav'
@@ -106,12 +111,13 @@ class Runtime:
         import joblib,sklearn,librosa,transformers
         from engine import LABELS
         if not status()['ready']:raise ValueError(status()['message'])
-        self.meta=json.loads(META.read_text(encoding='utf-8'))
+        self.meta=validate_metadata(json.loads(META.read_text(encoding='utf-8')))
         if self.meta.get('feature_version')!=FEATURE_VERSION or self.meta.get('sklearn_version')!=sklearn.__version__:raise ValueError('实时模型或 Python 环境版本已改变，请重新运行 07。')
         if self.meta.get('librosa_version')!=librosa.__version__ or self.meta.get('transformers_version')!=transformers.__version__:raise ValueError('音频特征提取库版本已改变，请重新运行 07 核对特征一致性。')
         if hashlib.sha256(MODEL.read_bytes()).hexdigest()!=self.meta.get('model_sha256'):raise ValueError('实时分类器校验失败，请重新运行 07。')
         self.classifier=joblib.load(MODEL)
-        if list(self.classifier.classes_)!=LABELS or self.classifier.n_features_in_!=542:raise ValueError('实时分类器类别或维度不匹配。')
+        classes=validate_classes(self.classifier.classes_)
+        if classes!=self.meta['classes_'] or self.classifier.n_features_in_!=542:raise ValueError('实时分类器类别顺序或维度与元数据不匹配。')
         try:self.encoder=Encoder()
         except Exception as exc:raise ValueError('CLAP 未能加载。请先运行 07；若提示 CUDA 问题，请查看命令窗口。原因：'+str(exc)[:250]) from None
         self.device=self.encoder.device
@@ -121,7 +127,7 @@ class Runtime:
         clap=self.encoder.vector(wave)
         x=np.concatenate([clap,mfcc]).reshape(1,-1)
         pred=str(self.classifier.predict(x)[0]);scores=self.classifier.decision_function(x)[0]
-        return {'actual':None,'predicted':pred,'scores':dict(zip(map(str,self.classifier.classes_),map(float,scores))),'duration':duration,'prediction_mode':'live','device':self.device,'model_metadata':{'classes_':list(map(str,self.classifier.classes_)),**{k:v for k,v in getattr(self,'meta',{}).items() if k in ('feature_version','clap_model','model_sha256','sklearn_version','librosa_version','transformers_version','torch_version','train_count','C','gamma','created')}},'note':'新录音实时推理，没有标准标签；CLAP 使用前 10 秒，MFCC 使用整段。该模型没有独立的非狗叫检测能力。'}
+        return {'actual':None,'predicted':pred,'scores':score_dict(self.classifier.classes_,scores),'duration':duration,'prediction_mode':'live','device':self.device,'model_metadata':{'classes_':list(map(str,self.classifier.classes_)),**{k:v for k,v in getattr(self,'meta',{}).items() if k in ('feature_version','clap_model','model_sha256','sklearn_version','librosa_version','transformers_version','torch_version','train_count','C','gamma','created','label_version','label_config_sha256','model_version','score_kind','split_id')}},'note':'新录音实时推理，没有标准标签；CLAP 使用前 10 秒，MFCC 使用整段。该模型没有独立的非狗叫检测能力。'}
 
 class DatasetFilenameError(ValueError):
     pass

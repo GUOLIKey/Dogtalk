@@ -65,7 +65,7 @@ class ContextRoutes(unittest.TestCase):
   def model(_model,messages,**kwargs):
    p=json.loads(messages[1]['content'])
    if p['stage']=='generate_intents':
-    self.assertEqual(p['history'][0]['answer'],TEXT);self.assertEqual(len(p['scene_result']['scores']),8);self.assertEqual(len(p['emotion_result']['arousal']['scores']),3)
+    self.assertEqual(p['history'][0]['answer'],TEXT);self.assertEqual(len(p['scene_result']['scores']),6);self.assertEqual(len(p['emotion_result']['arousal']['scores']),3)
     return gen()
    self.assertEqual(p['request_understanding']['user_question'],'为什么看着食物哼唧？')
    prior=p['independent_or_previous_round_observations'];h=[dict(prior[0],answer=FACT)]

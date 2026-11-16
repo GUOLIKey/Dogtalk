@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict');
+const view=require('./static/presentation.js');
+const initial=view.derive(null);
+assert.equal(initial.title,'新分析');assert.equal(initial.showIntent,false);
+const analyzed={phase:'analyzed',analysis:{ready:true},initial_intents:[]};
+assert.equal(view.derive(analyzed).compactInput,false);assert.equal(view.derive(analyzed).showIntent,true);
+const interview={...analyzed,initial_intents:[{intent_id:'I01'}],dialogue:{history:[]}};
+assert.equal(view.derive(interview).showIntent,false);assert.equal(view.derive(interview).compactInput,true);assert.equal(view.derive(interview).showReasoning,true);
+const failed={...analyzed,analysis:{ready:false}};
+assert.equal(view.derive(failed).models,'未完成');assert.equal(view.derive(failed).showIntent,true);
+const result={...interview,result:{uncertain:true,message:'还需要观察。'}};
+assert.equal(view.derive(result).title,'分析结果');assert.equal(view.resultSummary(result.result),'还需要观察。');
+assert.equal(view.phaseName('internal_unknown_value'),'未完成');
+const before=JSON.stringify(result);view.derive(result);view.resultSummary(result.result);assert.equal(JSON.stringify(result),before);
+console.log('PASS: presentation states preserve errors, uncertainty and source objects.');

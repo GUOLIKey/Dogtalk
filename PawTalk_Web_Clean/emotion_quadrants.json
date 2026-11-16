@@ -1,0 +1,25 @@
+{
+  "version": "quadrant-v0.2",
+  "quadrants": {
+    "E1": {
+      "valence": "Positive",
+      "arousal": "High",
+      "name": "正向·高唤醒"
+    },
+    "E2": {
+      "valence": "Negative",
+      "arousal": "High",
+      "name": "负向·高唤醒"
+    },
+    "E3": {
+      "valence": "Positive",
+      "arousal": "Low",
+      "name": "正向·低唤醒"
+    },
+    "E4": {
+      "valence": "Negative",
+      "arousal": "Low",
+      "name": "负向·低唤醒"
+    }
+  }
+}

@@ -52,7 +52,7 @@ class UploadJobTests(unittest.TestCase):
             self.assertEqual(code,202);self.assertTrue(entered.wait(2))
             code,state=request('/api/upload/status?id='+job['job_id'],method='GET')
             self.assertEqual(code,200);self.assertEqual(state['state'],'running')
-            self.assertEqual(state['stage'],'emotion');self.assertEqual(len(state['partial']['context']['scores']),8)
+            self.assertEqual(state['stage'],'emotion');self.assertEqual(len(state['partial']['context']['scores']),6)
             self.assertNotIn('gold',json.dumps(state));self.assertIsNone(state['session_id'])
             release.set();self.done(job['job_id'])
         result=request('/api/upload/status?id='+job['job_id'],method='GET')[1]

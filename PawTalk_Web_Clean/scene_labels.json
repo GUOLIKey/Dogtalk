@@ -1,0 +1,58 @@
+{
+  "version": "scene-six-v1",
+  "previous_version": "scene-eight-v1",
+  "frozen_before_evaluation": true,
+  "score_kind": "svm_decision_function_ovr",
+  "scenes": [
+    {
+      "id": "S01",
+      "label": "alerting to sounds",
+      "name": "对声音警觉",
+      "original_labels": [
+        "alerting to sounds"
+      ]
+    },
+    {
+      "id": "S02",
+      "label": "begging for food",
+      "name": "讨食",
+      "original_labels": [
+        "begging for food"
+      ]
+    },
+    {
+      "id": "S03",
+      "label": "play related",
+      "name": "玩耍相关情境",
+      "original_labels": [
+        "playing with human",
+        "playing with other animals",
+        "playing with toy"
+      ]
+    },
+    {
+      "id": "S04",
+      "label": "rest",
+      "name": "休息",
+      "original_labels": [
+        "rest"
+      ]
+    },
+    {
+      "id": "S05",
+      "label": "seeking attention",
+      "name": "寻求关注",
+      "original_labels": [
+        "seeking attention"
+      ]
+    },
+    {
+      "id": "S06",
+      "label": "taking shower",
+      "name": "洗澡",
+      "original_labels": [
+        "taking shower"
+      ]
+    }
+  ]
+}

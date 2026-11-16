@@ -1,8 +1,10 @@
 {
-  "rules_version": "v0.2",
+  "rules_version": "scene-six-rules-v1",
+  "label_version": "scene-six-v1",
+  "meaning": "每个有效组合唯一匹配一条规则，不代表唯一确定真实意图。",
   "rules": [
     {
-      "scene_id": "A1",
+      "scene_id": "S01",
       "emotion_id": "E1",
       "primary_hint_id": "I05",
       "candidate_pool": [
@@ -11,12 +13,12 @@
         "I06"
       ],
       "question_id": "Q01",
-      "rule_id": "A1-E1",
+      "rule_id": "S01-E1",
       "observation_required": true,
       "rationale": "先核查接近查看；正向不能证明想靠近，远离与一般回应仍需观察。"
     },
     {
-      "scene_id": "A1",
+      "scene_id": "S01",
       "emotion_id": "E2",
       "primary_hint_id": "I06",
       "candidate_pool": [
@@ -25,12 +27,12 @@
         "I03"
       ],
       "question_id": "Q01",
-      "rule_id": "A1-E2",
+      "rule_id": "S01-E2",
       "observation_required": true,
       "rationale": "先核查距离变化；负向高唤醒不能证明害怕、驱赶或提醒主人。"
     },
     {
-      "scene_id": "A1",
+      "scene_id": "S01",
       "emotion_id": "E3",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -38,12 +40,12 @@
         "I03"
       ],
       "question_id": "Q02",
-      "rule_id": "A1-E3",
+      "rule_id": "S01-E3",
       "observation_required": true,
       "rationale": "可能只是平静注意外部对象，缺少目标证据时不指定优先意图。"
     },
     {
-      "scene_id": "A1",
+      "scene_id": "S01",
       "emotion_id": "E4",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -52,12 +54,12 @@
         "I03"
       ],
       "question_id": "Q01",
-      "rule_id": "A1-E4",
+      "rule_id": "S01-E4",
       "observation_required": true,
       "rationale": "先查靠近或退开，不能把负向低唤醒解释成低落或退缩。"
     },
     {
-      "scene_id": "A2",
+      "scene_id": "S02",
       "emotion_id": "E1",
       "primary_hint_id": "I01",
       "candidate_pool": [
@@ -66,12 +68,12 @@
         "I03"
       ],
       "question_id": "Q02",
-      "rule_id": "A2-E1",
+      "rule_id": "S02-E1",
       "observation_required": true,
       "rationale": "优先核查食物目标，同时区分食物参与的游戏与一般回应。"
     },
     {
-      "scene_id": "A2",
+      "scene_id": "S02",
       "emotion_id": "E2",
       "primary_hint_id": "I01",
       "candidate_pool": [
@@ -80,12 +82,12 @@
         "I02"
       ],
       "question_id": "Q11",
-      "rule_id": "A2-E2",
+      "rule_id": "S02-E2",
       "observation_required": true,
       "rationale": "仍先核查食物目标；不能凭负向宣称受挫、饥饿或改成另一种意图。"
     },
     {
-      "scene_id": "A2",
+      "scene_id": "S02",
       "emotion_id": "E3",
       "primary_hint_id": "I01",
       "candidate_pool": [
@@ -94,12 +96,12 @@
         "I02"
       ],
       "question_id": "Q02",
-      "rule_id": "A2-E3",
+      "rule_id": "S02-E3",
       "observation_required": true,
       "rationale": "低唤醒不排除食物诉求，具体目标仍靠观察确认。"
     },
     {
-      "scene_id": "A2",
+      "scene_id": "S02",
       "emotion_id": "E4",
       "primary_hint_id": "I01",
       "candidate_pool": [
@@ -107,12 +109,12 @@
         "I03"
       ],
       "question_id": "Q11",
-      "rule_id": "A2-E4",
+      "rule_id": "S02-E4",
       "observation_required": true,
       "rationale": "核查本次是否有具体食物目标，不能推断身体不适或强行补满候选。"
     },
     {
-      "scene_id": "A3",
+      "scene_id": "S03",
       "emotion_id": "E1",
       "primary_hint_id": "I02",
       "candidate_pool": [
@@ -121,201 +123,98 @@
         "I04"
       ],
       "question_id": "Q03",
-      "rule_id": "A3-E1",
+      "rule_id": "S03-E1",
       "observation_required": true,
-      "rationale": "先核查游戏继续，也检查是否回避接触；正向不自动排除停止诉求。"
+      "rationale": "正向高唤醒仅优先核查开始或继续游戏；不能确认意图，也不能从合并场景推断对象。",
+      "object_known_from_model": false
     },
     {
-      "scene_id": "A3",
+      "scene_id": "S03",
       "emotion_id": "E2",
-      "primary_hint_id": "I04",
+      "primary_hint_id": null,
       "candidate_pool": [
-        "I04",
         "I02",
+        "I04",
         "I06"
-      ],
-      "question_id": "Q03",
-      "rule_id": "A3-E2",
-      "observation_required": true,
-      "rationale": "先区分停止接触、继续游戏及拉开距离；不能把负向直接当排除游戏的依据。"
-    },
-    {
-      "scene_id": "A3",
-      "emotion_id": "E3",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I02",
-        "I03",
-        "I04"
-      ],
-      "question_id": "Q02",
-      "rule_id": "A3-E3",
-      "observation_required": true,
-      "rationale": "可能是轻度互动或伴随发声，先明确对象与是否存在请求。"
-    },
-    {
-      "scene_id": "A3",
-      "emotion_id": "E4",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I04",
-        "I03",
-        "I02"
       ],
       "question_id": "Q04",
-      "rule_id": "A3-E4",
+      "rule_id": "S03-E2",
       "observation_required": true,
-      "rationale": "先查接触和回应目标；低唤醒负向本身不证明想停止。"
+      "rationale": "负向高唤醒不证明想停止或远离；询问是否存在接触、回避、退开或主动返回。",
+      "object_known_from_model": false
     },
     {
-      "scene_id": "A4",
-      "emotion_id": "E1",
-      "primary_hint_id": "I02",
+      "scene_id": "S03",
+      "emotion_id": "E3",
+      "primary_hint_id": null,
       "candidate_pool": [
         "I02",
-        "I06",
+        "I03",
         "I04"
       ],
-      "question_id": "Q05",
-      "rule_id": "A4-E1",
+      "question_id": "Q02",
+      "rule_id": "S03-E3",
       "observation_required": true,
-      "rationale": "核查主动返回还是持续退开，不能因场景是玩耍就否认距离诉求。"
+      "rationale": "正向低唤醒并不证明正在请求游戏；先核查关注对象及互动动作。",
+      "object_known_from_model": false
     },
     {
-      "scene_id": "A4",
-      "emotion_id": "E2",
-      "primary_hint_id": "I06",
-      "candidate_pool": [
-        "I06",
-        "I04",
-        "I02"
-      ],
-      "question_id": "Q05",
-      "rule_id": "A4-E2",
-      "observation_required": true,
-      "rationale": "优先核查距离变化；与停止接触可能兼容，继续游戏也未被自动排除。"
-    },
-    {
-      "scene_id": "A4",
-      "emotion_id": "E3",
+      "scene_id": "S03",
+      "emotion_id": "E4",
       "primary_hint_id": null,
       "candidate_pool": [
         "I02",
+        "I04",
         "I06"
       ],
-      "question_id": "Q05",
-      "rule_id": "A4-E3",
+      "question_id": "Q03",
+      "rule_id": "S03-E4",
       "observation_required": true,
-      "rationale": "不把安静社交当作明确邀请，方向性观察不足时保留未知。"
+      "rationale": "负向低唤醒保留不确定；通过暂停后的行为及距离变化区分继续、停止与远离。",
+      "object_known_from_model": false
     },
     {
-      "scene_id": "A4",
-      "emotion_id": "E4",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I06",
-        "I04",
-        "I02"
-      ],
-      "question_id": "Q10",
-      "rule_id": "A4-E4",
-      "observation_required": true,
-      "rationale": "先确认是否确有回避及明确对象，不能直接说被欺负或害怕。"
-    },
-    {
-      "scene_id": "A5",
-      "emotion_id": "E1",
-      "primary_hint_id": "I02",
-      "candidate_pool": [
-        "I02",
-        "I03"
-      ],
-      "question_id": "Q06",
-      "rule_id": "A5-E1",
-      "observation_required": true,
-      "rationale": "核查玩具相关游戏目标和人类参与，不能仅因玩具出现确认请求。"
-    },
-    {
-      "scene_id": "A5",
-      "emotion_id": "E2",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I02",
-        "I03"
-      ],
-      "question_id": "Q06",
-      "rule_id": "A5-E2",
-      "observation_required": true,
-      "rationale": "负向可能涉及多种情况，先查怎样对待玩具，不擅自生成求助或受挫的新意图。"
-    },
-    {
-      "scene_id": "A5",
-      "emotion_id": "E3",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I02",
-        "I03"
-      ],
-      "question_id": "Q02",
-      "rule_id": "A5-E3",
-      "observation_required": true,
-      "rationale": "可能是独自摆弄或伴随发声，先确认是否有交流目标。"
-    },
-    {
-      "scene_id": "A5",
-      "emotion_id": "E4",
-      "primary_hint_id": null,
-      "candidate_pool": [
-        "I02",
-        "I03"
-      ],
-      "question_id": "Q06",
-      "rule_id": "A5-E4",
-      "observation_required": true,
-      "rationale": "不推断玩具损坏、失落或疾病；可无明确请求。"
-    },
-    {
-      "scene_id": "A6",
+      "scene_id": "S04",
       "emotion_id": "E1",
       "primary_hint_id": null,
       "candidate_pool": [],
       "question_id": "Q07",
-      "rule_id": "A6-E1",
+      "rule_id": "S04-E1",
       "observation_required": true,
       "rationale": "休息标签与高唤醒组合先查新事件，不能自行编成想起床或想玩。"
     },
     {
-      "scene_id": "A6",
+      "scene_id": "S04",
       "emotion_id": "E2",
       "primary_hint_id": null,
       "candidate_pool": [],
       "question_id": "Q07",
-      "rule_id": "A6-E2",
+      "rule_id": "S04-E2",
       "observation_required": true,
       "rationale": "先查是否有打断或其他变化，不凭两个标签推断烦躁或想赶人。"
     },
     {
-      "scene_id": "A6",
+      "scene_id": "S04",
       "emotion_id": "E3",
       "primary_hint_id": null,
       "candidate_pool": [],
       "question_id": "Q07",
-      "rule_id": "A6-E3",
+      "rule_id": "S04-E3",
       "observation_required": true,
       "rationale": "可能没有明确请求，不能把安静状态翻译成让我休息。"
     },
     {
-      "scene_id": "A6",
+      "scene_id": "S04",
       "emotion_id": "E4",
       "primary_hint_id": null,
       "candidate_pool": [],
       "question_id": "Q07",
-      "rule_id": "A6-E4",
+      "rule_id": "S04-E4",
       "observation_required": true,
       "rationale": "不从负向低唤醒推断低落或求助；需要独立观察。"
     },
     {
-      "scene_id": "A7",
+      "scene_id": "S05",
       "emotion_id": "E1",
       "primary_hint_id": "I03",
       "candidate_pool": [
@@ -324,12 +223,12 @@
         "I01"
       ],
       "question_id": "Q08",
-      "rule_id": "A7-E1",
+      "rule_id": "S05-E1",
       "observation_required": true,
       "rationale": "先核查回应之后的具体目标，一般关注可能被游戏或食物目标涵盖。"
     },
     {
-      "scene_id": "A7",
+      "scene_id": "S05",
       "emotion_id": "E2",
       "primary_hint_id": "I03",
       "candidate_pool": [
@@ -338,12 +237,12 @@
         "I02"
       ],
       "question_id": "Q08",
-      "rule_id": "A7-E2",
+      "rule_id": "S05-E2",
       "observation_required": true,
       "rationale": "仍先核查回应目标，不把负向推断成孤独、焦虑或急切请求。"
     },
     {
-      "scene_id": "A7",
+      "scene_id": "S05",
       "emotion_id": "E3",
       "primary_hint_id": "I03",
       "candidate_pool": [
@@ -352,12 +251,12 @@
         "I02"
       ],
       "question_id": "Q02",
-      "rule_id": "A7-E3",
+      "rule_id": "S05-E3",
       "observation_required": true,
       "rationale": "温和状态不等于陪伴诉求，仍检查更具体目标。"
     },
     {
-      "scene_id": "A7",
+      "scene_id": "S05",
       "emotion_id": "E4",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -366,12 +265,12 @@
         "I02"
       ],
       "question_id": "Q08",
-      "rule_id": "A7-E4",
+      "rule_id": "S05-E4",
       "observation_required": true,
       "rationale": "先查是否真的指向主人及随后目标，不能据此说伤心或需要安慰。"
     },
     {
-      "scene_id": "A8",
+      "scene_id": "S06",
       "emotion_id": "E1",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -379,12 +278,12 @@
         "I04"
       ],
       "question_id": "Q09",
-      "rule_id": "A8-E1",
+      "rule_id": "S06-E1",
       "observation_required": true,
       "rationale": "正向不证明喜欢洗澡或想继续；停止接触候选仍需实际依据。"
     },
     {
-      "scene_id": "A8",
+      "scene_id": "S06",
       "emotion_id": "E2",
       "primary_hint_id": "I04",
       "candidate_pool": [
@@ -393,12 +292,12 @@
         "I03"
       ],
       "question_id": "Q09",
-      "rule_id": "A8-E2",
+      "rule_id": "S06-E2",
       "observation_required": true,
       "rationale": "先核查接触变化，再区分停止接触与拉开距离；不直接诊断害怕或疼痛。"
     },
     {
-      "scene_id": "A8",
+      "scene_id": "S06",
       "emotion_id": "E3",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -406,12 +305,12 @@
         "I04"
       ],
       "question_id": "Q09",
-      "rule_id": "A8-E3",
+      "rule_id": "S06-E3",
       "observation_required": true,
       "rationale": "可能只是洗浴中的伴随发声，不能从平静直接确定意图。"
     },
     {
-      "scene_id": "A8",
+      "scene_id": "S06",
       "emotion_id": "E4",
       "primary_hint_id": null,
       "candidate_pool": [
@@ -420,7 +319,7 @@
         "I03"
       ],
       "question_id": "Q09",
-      "rule_id": "A8-E4",
+      "rule_id": "S06-E4",
       "observation_required": true,
       "rationale": "先查叫声与接触或距离变化的关联，不能把低唤醒负向当作退缩的事实。"
     }

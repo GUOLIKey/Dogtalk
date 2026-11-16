@@ -18,9 +18,10 @@ import engine
 import llm_client
 
 MODEL = 'DeepSeek::test-model'
-ROW = {'actual': 'begging for food', 'predicted': 'seeking attention',
-       'scores': dict(zip(engine.LABELS, [6.2, 4.1, 2.2, 1.8, 3.3, .7, 6.1, 1.2])),
-       'duration': 3., 'fold': 1}
+from scene_schema import LABEL_VERSION, CONFIG_SHA256, MODEL_VERSION, SCORE_KIND
+ROW = {'actual_original': 'begging for food', 'target_six':'begging for food', 'predicted': 'seeking attention',
+       'scores': dict(zip(engine.LABELS, [6.2, 4.1, 2.2, .7, 6.1, 1.2])),
+       'duration': 3., 'fold': 1, 'model_metadata':{'classes_':list(engine.LABELS),'label_version':LABEL_VERSION,'label_config_sha256':CONFIG_SHA256,'model_version':MODEL_VERSION,'score_kind':SCORE_KIND}}
 EMOTION = {'available': True, 'enabled': True, 'model': 'DogBark LSTM', 'model_commit': 'fixture-commit',
            'recipe': 'fixture-recipe', 'duration': 3., 'aggregation': 'duration_weighted_mean_v1', 'device': 'cpu',
            'message': 'fixture only, not real model inference', 'chunks': [],

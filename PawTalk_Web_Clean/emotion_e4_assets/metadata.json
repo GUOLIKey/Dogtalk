@@ -1,0 +1,68 @@
+{
+  "model_version": "emotion-e4-rich153-svm-v1",
+  "recipe": "full_mfcc20_delta_spectral_rhythm_v1",
+  "feature_dimensions": 153,
+  "score_kind": "svm_decision_function_ovr",
+  "train_count": 1200,
+  "group_count": 1198,
+  "dataset_repository": "https://github.com/tmdang1101/EmotionalCanines",
+  "dataset_revision": "6b73c5fce55fc132e97db6a76899f8594a955f59",
+  "dataset_manifest_sha256": "449a5c3986a70110d76be0729c1582b23e327224d109e23875076eb9aeaf0b87",
+  "training_manifest_sha256": "0212632fbcdbc11a794ab2cd40d3909c351bf389ad43dae81e9e370381a53295",
+  "official_test_used": false,
+  "trained_on": "official TRAIN only",
+  "random_seed": 20261116,
+  "axes": {
+    "arousal": {
+      "classes_": [
+        "High",
+        "Low",
+        "Medium"
+      ],
+      "filename": "arousal.joblib",
+      "params": {
+        "clf": "SVC()",
+        "clf__C": 1.0,
+        "clf__class_weight": "balanced",
+        "clf__gamma": 0.01
+      },
+      "full_train_cv_selection_macro_f1": 0.5074525346952505,
+      "selection_score_is_not_independent_test": true,
+      "development_oof_macro_f1": 0.5075139601693072,
+      "development_oof_accuracy": 0.5066666666666667,
+      "oof_reproduced": true
+    },
+    "valence": {
+      "classes_": [
+        "Negative",
+        "Neutral",
+        "Positive"
+      ],
+      "filename": "valence.joblib",
+      "params": {
+        "clf": "SVC()",
+        "clf__C": 1.0,
+        "clf__class_weight": "balanced",
+        "clf__gamma": 0.01
+      },
+      "full_train_cv_selection_macro_f1": 0.437101778198564,
+      "selection_score_is_not_independent_test": true,
+      "development_oof_macro_f1": 0.4298706347608084,
+      "development_oof_accuracy": 0.43666666666666665,
+      "oof_reproduced": true
+    }
+  },
+  "versions": {
+    "sklearn": "1.6.1",
+    "numpy": "2.1.3",
+    "librosa": "0.11.0",
+    "soundfile": "0.13.1"
+  },
+  "feature_source_sha256": "1ffd59651d245f87f70c68c98e2afcfb8299a50e3cc17ab42e43ac191b021bac",
+  "usability_policy": "e4-quadrant-gate-unvalidated-v1",
+  "limitations": [
+    "Development OOF results are not independent deployment accuracy.",
+    "Dog/source IDs unavailable; exact duplicate grouping does not establish cross-dog generalization.",
+    "Scores are uncalibrated decisions; no validated quadrant confidence gate."
+  ]
+}

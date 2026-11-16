@@ -16,7 +16,7 @@ def envelope(a,raw,mode='C'):
 
 class Rules(unittest.TestCase):
  def test_all_unique_and_inverse(self):
-  rules.validate_config();self.assertEqual(len(rules.RULES),32)
+  rules.validate_config();self.assertEqual(len(rules.RULES),24)
   for ident,idx in rules.reverse_index().items():
    self.assertEqual(set(idx['pool']),{k for k,v in rules.RULES.items() if ident in v['candidate_pool']})
  def test_quadrants(self):
@@ -34,13 +34,13 @@ class Rules(unittest.TestCase):
   a['emotion']['arousal']['label']='Medium';self.assertEqual(rules.derive(a)['emotion_summary']['status'],'unavailable')
  def test_anchor_predict_not_argmax_and_aux_order(self):
   a=quadrant();r=rules.derive(a)['rule_context']
-  self.assertEqual(r['primary_rule_id'],'A7-E1');self.assertEqual(r['matched_rule_ids'],['A7-E1','A1-E1','A2-E1'])
+  self.assertEqual(r['primary_rule_id'],'S05-E1');self.assertEqual(r['matched_rule_ids'],['S05-E1','S01-E1','S02-E1'])
   self.assertEqual([x['role'] for x in r['matched_rules']],['primary','auxiliary','auxiliary'])
  def test_empty_rest_and_shared_food_hints(self):
   for e in range(1,5):
-   r=rules.RULES[f'A6-E{e}'];self.assertEqual(r['candidate_pool'],[]);self.assertIsNone(r['primary_hint_id'])
-  self.assertEqual(rules.RULES['A1-E2']['primary_hint_id'],'I06')
-  for e in (1,2):self.assertEqual(rules.RULES[f'A2-E{e}']['primary_hint_id'],'I01')
+   r=rules.RULES[f'S04-E{e}'];self.assertEqual(r['candidate_pool'],[]);self.assertIsNone(r['primary_hint_id'])
+  self.assertEqual(rules.RULES['S01-E2']['primary_hint_id'],'I06')
+  for e in (1,2):self.assertEqual(rules.RULES[f'S02-E{e}']['primary_hint_id'],'I01')
  def test_full_payload_different_distributions_and_no_answers(self):
   seen=[]
   for value in (.3,2.):
@@ -48,8 +48,8 @@ class Rules(unittest.TestCase):
    raw=envelope(a,{'intents':candidates()})
    with patch.object(d,'chat_json',return_value=raw) as call:d.generate_intents(a,'mock')
    p=json.loads(call.call_args.args[1][1]['content']);seen.append(p)
-   self.assertEqual(len(p['scene_result']['scores']),8);self.assertEqual(len(p['emotion_result']['valence']['scores']),3);self.assertEqual(len(p['emotion_result']['arousal']['scores']),3)
-   self.assertNotIn('secret',json.dumps(p));self.assertEqual(p['rule_context']['primary_rule_id'],'A7-E1')
+   self.assertEqual(len(p['scene_result']['scores']),6);self.assertEqual(len(p['emotion_result']['valence']['scores']),3);self.assertEqual(len(p['emotion_result']['arousal']['scores']),3)
+   self.assertNotIn('secret',json.dumps(p));self.assertEqual(p['rule_context']['primary_rule_id'],'S05-E1')
   self.assertNotEqual(seen[0]['scene_result']['scores'],seen[1]['scene_result']['scores'])
  def test_ablations_do_not_leak_emotion_via_rules(self):
   a=quadrant()
@@ -63,8 +63,8 @@ class Rules(unittest.TestCase):
   a=quadrant()
   for mutation in ('entry','source','score','outside'):
    xs=candidates();raw=envelope(a,{'intents':xs})
-   if mutation=='entry':raw['primary_rule_id']='A1-E4'
-   if mutation=='source':xs[0]['source_rule_ids']=['A6-E4']
+   if mutation=='entry':raw['primary_rule_id']='S01-E4'
+   if mutation=='source':xs[0]['source_rule_ids']=['S04-E4']
    if mutation=='score':xs[0]['supporting_signals'][0]['score']=.99
    if mutation=='outside':xs[0]['intent_id']='I04'
    with patch.object(d,'chat_json',return_value=raw),self.assertRaises(ValueError):d.generate_intents(a,'mock')
@@ -105,7 +105,7 @@ class Rules(unittest.TestCase):
  def test_actual_classes_order_is_saved_and_checked(self):
   from analysis_contract import context_result
   row=copy.deepcopy(ROW);order=list(reversed(list(row['scores'])))
-  row['model_metadata']={'classes_':order}
+  row['model_metadata'].update(classes_=order)
   out=context_result(row);self.assertEqual(out['classes_order'],order)
   row['model_metadata']['classes_']=['rest']*8
   with self.assertRaises(ValueError):context_result(row)

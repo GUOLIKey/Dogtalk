@@ -1,0 +1,7 @@
+PawTalk Web Six Scenes v1
+程序目录： /workspace/scratch/3c63f5565f7f/dogtalk_target/PawTalk_Web_Clean
+DeepSeek：请运行 04_SET_DEEPSEEK.bat 填写密钥。
+数据集索引尚未准备；只有需要原 DEV 验证回放时才运行 01。
+新录音：六分类模型缺失：请先运行 scene_training.py train；旧八类模型不会替代
+情绪模块：情绪模块待准备：运行 08_ENABLE_EMOTION.bat；综合意图需要两路均完成。
+CHECK OK：程序完整性检查通过；没有调用 DeepSeek API。

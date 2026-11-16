@@ -45,7 +45,7 @@ class AudioTests(unittest.TestCase):
 class RouteTests(unittest.TestCase):
     def setUp(self):
         with server.connect() as c:c.execute('DELETE FROM sessions');c.execute('DELETE FROM revealed')
-        self.row={'actual':None,'predicted':LABELS[0],'scores':dict(zip(LABELS,range(8))),'duration':2,'prediction_mode':'live','device':'cpu'}
+        self.row={'actual':None,'predicted':LABELS[0],'scores':dict(zip(LABELS,range(6))),'duration':2,'prediction_mode':'live','device':'cpu'}
     def test_live_runtime_orders_clap_before_mfcc(self):
         class Classifier:
             classes_=LABELS
@@ -53,12 +53,12 @@ class RouteTests(unittest.TestCase):
                 np.testing.assert_array_equal(x[0,:512],np.ones(512)*2)
                 np.testing.assert_array_equal(x[0,512:],np.ones(30)*3)
                 return np.array([LABELS[2]])
-            def decision_function(self,x):return np.arange(8).reshape(1,8)
+            def decision_function(self,x):return np.arange(6).reshape(1,6)
         runtime=live.Runtime.__new__(live.Runtime);runtime.device='cpu';runtime.classifier=Classifier()
         class Encoder:
             def vector(self,w):return np.ones(512)*2
         runtime.encoder=Encoder()
         with patch.object(live,'feature_waves',return_value=(np.ones(30)*3,np.zeros(48000))):row=runtime.predict_path(Path('fake'),1)
-        self.assertIsNone(row['actual']);self.assertEqual(row['predicted'],LABELS[2]);self.assertEqual(len(row['scores']),8)
+        self.assertIsNone(row['actual']);self.assertEqual(row['predicted'],LABELS[2]);self.assertEqual(len(row['scores']),6)
 
 if __name__=='__main__':unittest.main()

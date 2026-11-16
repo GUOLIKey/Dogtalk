@@ -1,0 +1,19 @@
+{
+  "model_version": "emotion-e4-rich153-svm-v1",
+  "recipe": "full_mfcc20_delta_spectral_rhythm_v1",
+  "files": {
+    "arousal.joblib": {
+      "bytes": 820038,
+      "sha256": "cf4545f507f53ab5bae6c80bd3607cfbdcc8b3ffcab98e950adaec2ea6f142c4"
+    },
+    "valence.joblib": {
+      "bytes": 832728,
+      "sha256": "781c141f5c1ae741af8bd3a95a55ae3f0cfc5175300a5d2ef83a3dc02ac5a95f"
+    },
+    "metadata.json": {
+      "bytes": 2298,
+      "sha256": "95f91ad67b5db2ca423c3cd92724f3f27399a728b16e1e00c658a7627775d23b"
+    }
+  },
+  "usability_policy": "e4-quadrant-gate-unvalidated-v1"
+}

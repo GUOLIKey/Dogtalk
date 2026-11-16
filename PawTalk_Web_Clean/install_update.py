@@ -2,7 +2,8 @@
 import argparse,hashlib,json,os,shutil,tempfile,uuid
 from datetime import datetime
 from pathlib import Path
-PROTECTED={'data','models','state','.venv','.venv_emotion','.hf_cache','DEEPSEEK_CONFIG.ini'}
+from app_version import APP_VERSION
+PROTECTED={'data','models','state','.venv','.venv_emotion','.venv_emotion_e4','.hf_cache','DEEPSEEK_CONFIG.ini'}
 def install(source,target):
     source=Path(source).resolve();target=Path(target).resolve()
     if source==target:raise ValueError('请解压到临时文件夹，再选择原应用文件夹。')
@@ -14,7 +15,7 @@ def install(source,target):
         if relative.is_absolute() or '..' in relative.parts or relative.parts[0] in PROTECTED or (target/relative).is_symlink():raise ValueError('更新清单包含受保护或非法路径。')
         if not (source/relative).is_file():raise ValueError('更新程序文件缺失：'+name)
         if name!='build_manifest.json' and hashlib.sha256((source/relative).read_bytes()).hexdigest()!=manifest['sha256'][name]:raise ValueError('更新包内容不完整：'+name)
-    backup=target/'program_backups'/('before_v12_'+datetime.now().strftime('%Y%m%d_%H%M%S')+'_'+uuid.uuid4().hex[:6])
+    backup=target/'program_backups'/('before_emotion_e4_'+datetime.now().strftime('%Y%m%d_%H%M%S')+'_'+uuid.uuid4().hex[:6])
     backup.mkdir(parents=True);changed=[]
     try:
         for name in paths:
@@ -46,9 +47,9 @@ def main():
         root.destroy()
     if not target:print('未选择文件夹，没有修改。');return
     backup=install(Path(__file__).resolve().parent,target)
-    print('更新完成：PawTalk Web Intent v12')
+    print('更新完成：'+APP_VERSION)
     print('程序备份：',backup)
-    print('密钥、模型、数据与历史记录均保留。请在原文件夹运行 00_START_APP.bat。')
+    print('密钥、模型、数据与历史记录均保留。已启用E4时直接运行00；首次启用E4才需要运行08。')
 if __name__=='__main__':
     try:main()
     except Exception as exc:

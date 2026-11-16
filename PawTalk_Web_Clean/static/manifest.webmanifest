@@ -1,10 +1,10 @@
 {
-  "name": "PawTalk Intent v12",
+  "name": "PawTalk",
   "short_name": "PawTalk",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f5ed",
-  "theme_color": "#254b42",
+  "background_color": "#ffffff",
+  "theme_color": "#fafafa",
   "icons": [
     {
       "src": "/icon.svg",
@@ -13,5 +13,5 @@
       "purpose": "any"
     }
   ],
-  "description": "双路声音分析、三个意图假设与观察问答"
+  "description": "狗叫录音与观察记录"
 }

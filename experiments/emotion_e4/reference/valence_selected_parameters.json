@@ -1,0 +1,38 @@
+[
+  {
+    "fold": 1,
+    "params": {
+      "clf": "SVC()",
+      "clf__C": 1.0,
+      "clf__class_weight": "balanced",
+      "clf__gamma": "scale"
+    },
+    "inner_macro_f1": 0.4199529425335731,
+    "train_n": 801,
+    "valid_n": 399
+  },
+  {
+    "fold": 2,
+    "params": {
+      "clf": "SVC()",
+      "clf__C": 1.0,
+      "clf__class_weight": "balanced",
+      "clf__gamma": 0.01
+    },
+    "inner_macro_f1": 0.43017543282714915,
+    "train_n": 799,
+    "valid_n": 401
+  },
+  {
+    "fold": 3,
+    "params": {
+      "clf": "SVC()",
+      "clf__C": 1.0,
+      "clf__class_weight": "balanced",
+      "clf__gamma": 0.01
+    },
+    "inner_macro_f1": 0.41546946712960003,
+    "train_n": 800,
+    "valid_n": 400
+  }
+]

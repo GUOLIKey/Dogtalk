@@ -1,0 +1,31 @@
+.........................................../workspace/scratch/3c63f5565f7f/scene_test_env/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+  import aifc
+/workspace/scratch/3c63f5565f7f/scene_test_env/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+  import audioop
+/workspace/scratch/3c63f5565f7f/scene_test_env/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+  import sunau
+.........................................................[UPLOAD jYwep1] 正在核对音频指纹与 DEV 索引。
+[UPLOAD jYwep1] 场景：未命中缓存，正在检查并执行实时模型；首次加载可能较慢。
+[UPLOAD jYwep1] 情绪：正在排队或运行独立模型；子进程超时上限 180 秒（不含排队）。场景结果已返回。
+[UPLOAD jYwep1] 两路分析已返回，正在保存记录。
+..[UPLOAD PDCCIj] 正在核对音频指纹与 DEV 索引。
+[UPLOAD PDCCIj] 场景：已命中 DEV 缓存，正在读取六类决策分数。
+[UPLOAD PDCCIj] 情绪：正在排队或运行独立模型；子进程超时上限 180 秒（不含排队）。场景结果已返回。
+[UPLOAD PDCCIj] 两路分析已返回，正在保存记录。
+....[UPLOAD V2Fgek] 正在核对音频指纹与 DEV 索引。
+[UPLOAD V2Fgek] 场景：已命中 DEV 缓存，正在读取六类决策分数。
+[UPLOAD V2Fgek] 情绪：正在排队或运行独立模型；子进程超时上限 180 秒（不含排队）。场景结果已返回。
+[UPLOAD V2Fgek] 两路分析已返回，正在保存记录。
+.[UPLOAD PoEccQ] 正在核对音频指纹与 DEV 索引。
+[UPLOAD PoEccQ] 场景：已命中 DEV 缓存，正在读取六类决策分数。
+[UPLOAD PoEccQ] 情绪：正在排队或运行独立模型；子进程超时上限 180 秒（不含排队）。场景结果已返回。
+[UPLOAD PoEccQ] 两路分析已返回，正在保存记录。
+..[UPLOAD 5Nwrxj] 正在核对音频指纹与 DEV 索引。
+[UPLOAD 5Nwrxj] 场景：已命中 DEV 缓存，正在读取六类决策分数。
+[UPLOAD 5Nwrxj] 情绪：正在排队或运行独立模型；子进程超时上限 180 秒（不含排队）。场景结果已返回。
+[UPLOAD 5Nwrxj] 两路分析已返回，正在保存记录。
+.
+----------------------------------------------------------------------
+Ran 110 tests in 3.285s
+
+OK

@@ -11,7 +11,7 @@ def history(answer='它盯着食物，在人和食物之间来回看。'):
 def response(cs,h=(),states=None,action='ask',selected=None,coexist=None):
  return {'primary_rule_id':None,'emotion_summary_ref':'server_emotion_summary','action':action,'selected_intent_id':selected,'coexisting_intent_ids':coexist or [],'assessments':[{'intent_id':i['intent_id'],'status':state,'reason':'观察与该目的相关。','missing_information':[], 'subsumed_by':'I01' if state=='subsumed' else None,'evidence':[{'answer_id':h[-1]['answer_id'],'quote':h[-1]['answer'],'role':'contradict' if state=='excluded' else 'support'}] if h and state!='possible' else []} for i,state in zip(cs,states or ['possible']*len(cs))], 'question':{'text':'叫声前发生了什么变化？','distinguishes':[i['intent_id'] for i in cs]} if action=='ask' else None,'remaining_uncertainties':[]}
 class Contracts(unittest.TestCase):
- def test_catalog_complete(self):self.assertEqual(set(d.CATALOG_BY_ID),{f'I0{i}' for i in range(1,7)});self.assertEqual(len(d.rules.SCENES),8)
+ def test_catalog_complete(self):self.assertEqual(set(d.CATALOG_BY_ID),{f'I0{i}' for i in range(1,7)});self.assertEqual(len(d.rules.SCENES),6)
  def test_full_input_and_modes(self):
   for mode in ('A','B','C'):
    xs=candidates()
@@ -19,7 +19,7 @@ class Contracts(unittest.TestCase):
     for x in xs:x['supporting_signals']=[]
    with patch.object(d,'chat_json',return_value={'primary_rule_id':None,'emotion_summary_ref':'server_emotion_summary','intents':xs}) as call:d.generate_intents(analysis(),'test',mode=mode)
    payload=json.loads(call.call_args.args[1][1]['content']);a=payload['analysis']
-   if mode=='C':self.assertEqual(len(a['context']['scores']),8);self.assertEqual(len(a['emotion']['arousal']['scores']),3);self.assertFalse(a['emotion']['arousal']['usable'])
+   if mode=='C':self.assertEqual(len(a['context']['scores']),6);self.assertEqual(len(a['emotion']['arousal']['scores']),3);self.assertFalse(a['emotion']['arousal']['usable'])
    if mode=='A':self.assertNotIn('context',a);self.assertNotIn('emotion',a)
    if mode=='B':self.assertNotIn('emotion',a)
    self.assertNotIn('actual',json.dumps(payload));self.assertNotIn('gold',json.dumps(payload))

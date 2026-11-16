@@ -1,0 +1,9 @@
+...................[CV] fold=1 original8 then retrained6; n_train=32 n_valid=16
+[CV] fold=2 original8 then retrained6; n_train=32 n_valid=16
+[CV] fold=3 original8 then retrained6; n_train=32 n_valid=16
+[READY] Six-class training completed; data_kind=synthetic_test_fixture. No intent accuracy inferred.
+...
+----------------------------------------------------------------------
+Ran 22 tests in 1.084s
+
+OK
