@@ -1,0 +1,3239 @@
+{
+  "label_version": "scene-six-v1",
+  "provenance": {
+    "kind": "paired_model_rerun",
+    "data_kind": "real_dev",
+    "feature_sha256": "7a7232c544d1c4738d2ec9293cb6992c8032aff52fe64f6f9a044f0e896d8125",
+    "same_samples_and_folds": true,
+    "hyperparameters_changed": false,
+    "split_audit": {
+      "exact_duplicate_groups": 1,
+      "decoded_duplicate_groups": 1,
+      "original_cross_fold_groups": 0,
+      "dog_id_coverage": 0,
+      "source_recording_id_coverage": 0,
+      "limitations": [
+        "未提供的犬只/来源身份无法核查；精确指纹不能发现所有重叠切片或重采样副本。",
+        "不读取留出集音频；跨集合指纹检查只使用提供的清单字段。"
+      ],
+      "holdout_hash_coverage": 0,
+      "holdout_audio_decoded_or_scored": false,
+      "split_policy": "original_manifest_folds_no_detected_group_crossing",
+      "split_id": "332bea55ea86d6dd7006687de312b513b0bf0f222a44d3ad81411b67d1ea54cd"
+    },
+    "old_prediction_agreement": 1.0,
+    "note": "原八分类和重训六分类均在同一划分重跑。若原始缓存/训练工厂未提供，不声称逐字节复现旧模型。"
+  },
+  "subsets": {
+    "all_dev": {
+      "original_eight": {
+        "n": 9984,
+        "accuracy": 0.32081330128205127,
+        "macro_f1": 0.3226495817260827,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.3372093023255814,
+            "recall": 0.3921708185053381,
+            "f1-score": 0.36261928265876936,
+            "support": 1405.0
+          },
+          "begging for food": {
+            "precision": 0.33182844243792325,
+            "recall": 0.3394919168591224,
+            "f1-score": 0.3356164383561644,
+            "support": 433.0
+          },
+          "playing with human": {
+            "precision": 0.3073170731707317,
+            "recall": 0.3066759388038943,
+            "f1-score": 0.3069961712495649,
+            "support": 1438.0
+          },
+          "playing with other animals": {
+            "precision": 0.24306569343065693,
+            "recall": 0.2346723044397463,
+            "f1-score": 0.23879526712083185,
+            "support": 1419.0
+          },
+          "playing with toy": {
+            "precision": 0.30038910505836575,
+            "recall": 0.2712579058327477,
+            "f1-score": 0.28508124076809455,
+            "support": 1423.0
+          },
+          "rest": {
+            "precision": 0.3674484719260839,
+            "recall": 0.3651129943502825,
+            "f1-score": 0.3662770102727595,
+            "support": 1416.0
+          },
+          "seeking attention": {
+            "precision": 0.35404255319148936,
+            "recall": 0.2861072902338377,
+            "f1-score": 0.3164701407379232,
+            "support": 1454.0
+          },
+          "taking shower": {
+            "precision": 0.33360323886639676,
+            "recall": 0.41365461847389556,
+            "f1-score": 0.369341102644554,
+            "support": 996.0
+          },
+          "accuracy": 0.32081330128205127,
+          "macro avg": {
+            "precision": 0.3218629850509036,
+            "recall": 0.32614297343735804,
+            "f1-score": 0.3226495817260827,
+            "support": 9984.0
+          },
+          "weighted avg": {
+            "precision": 0.3204227149977387,
+            "recall": 0.32081330128205127,
+            "f1-score": 0.31925512452636884,
+            "support": 9984.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            551,
+            46,
+            101,
+            132,
+            128,
+            182,
+            186,
+            79
+          ],
+          [
+            62,
+            147,
+            28,
+            50,
+            32,
+            35,
+            29,
+            50
+          ],
+          [
+            147,
+            35,
+            441,
+            220,
+            157,
+            146,
+            124,
+            168
+          ],
+          [
+            153,
+            62,
+            262,
+            333,
+            195,
+            130,
+            116,
+            168
+          ],
+          [
+            173,
+            23,
+            196,
+            210,
+            386,
+            164,
+            140,
+            131
+          ],
+          [
+            192,
+            53,
+            107,
+            154,
+            128,
+            517,
+            128,
+            137
+          ],
+          [
+            250,
+            46,
+            190,
+            163,
+            169,
+            130,
+            416,
+            90
+          ],
+          [
+            106,
+            31,
+            110,
+            108,
+            90,
+            103,
+            36,
+            412
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "playing with human",
+          "playing with other animals",
+          "playing with toy",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 3328,
+            "accuracy": 0.33052884615384615,
+            "macro_f1": 0.33392008855404137,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.34363636363636363,
+                "recall": 0.40384615384615385,
+                "f1-score": 0.3713163064833006,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.36666666666666664,
+                "recall": 0.3793103448275862,
+                "f1-score": 0.3728813559322034,
+                "support": 145.0
+              },
+              "playing with human": {
+                "precision": 0.2959558823529412,
+                "recall": 0.33611691022964507,
+                "f1-score": 0.3147605083088954,
+                "support": 479.0
+              },
+              "playing with other animals": {
+                "precision": 0.2562358276643991,
+                "recall": 0.23890063424947147,
+                "f1-score": 0.24726477024070023,
+                "support": 473.0
+              },
+              "playing with toy": {
+                "precision": 0.32587064676616917,
+                "recall": 0.27578947368421053,
+                "f1-score": 0.29874572405929306,
+                "support": 475.0
+              },
+              "rest": {
+                "precision": 0.3786008230452675,
+                "recall": 0.3898305084745763,
+                "f1-score": 0.38413361169102295,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.38328530259365995,
+                "recall": 0.27479338842975204,
+                "f1-score": 0.3200962695547533,
+                "support": 484.0
+              },
+              "taking shower": {
+                "precision": 0.3284313725490196,
+                "recall": 0.4036144578313253,
+                "f1-score": 0.3621621621621622,
+                "support": 332.0
+              },
+              "accuracy": 0.33052884615384615,
+              "macro avg": {
+                "precision": 0.33483536065931085,
+                "recall": 0.33777523394659015,
+                "f1-score": 0.33392008855404137,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.3320277484416187,
+                "recall": 0.33052884615384615,
+                "f1-score": 0.32871095666972105,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                189,
+                13,
+                39,
+                41,
+                43,
+                58,
+                58,
+                27
+              ],
+              [
+                16,
+                55,
+                14,
+                18,
+                9,
+                14,
+                8,
+                11
+              ],
+              [
+                48,
+                16,
+                161,
+                70,
+                43,
+                57,
+                32,
+                52
+              ],
+              [
+                59,
+                22,
+                102,
+                113,
+                53,
+                39,
+                27,
+                58
+              ],
+              [
+                49,
+                7,
+                78,
+                69,
+                131,
+                54,
+                34,
+                53
+              ],
+              [
+                66,
+                16,
+                35,
+                48,
+                33,
+                184,
+                44,
+                46
+              ],
+              [
+                86,
+                9,
+                73,
+                46,
+                60,
+                50,
+                133,
+                27
+              ],
+              [
+                37,
+                12,
+                42,
+                36,
+                30,
+                30,
+                11,
+                134
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 3328,
+            "accuracy": 0.30138221153846156,
+            "macro_f1": 0.30164338504961125,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.32604735883424407,
+                "recall": 0.38247863247863245,
+                "f1-score": 0.352015732546706,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.3088235294117647,
+                "recall": 0.2916666666666667,
+                "f1-score": 0.3,
+                "support": 144.0
+              },
+              "playing with human": {
+                "precision": 0.3164251207729469,
+                "recall": 0.27291666666666664,
+                "f1-score": 0.2930648769574944,
+                "support": 480.0
+              },
+              "playing with other animals": {
+                "precision": 0.21775898520084566,
+                "recall": 0.21775898520084566,
+                "f1-score": 0.21775898520084566,
+                "support": 473.0
+              },
+              "playing with toy": {
+                "precision": 0.2706422018348624,
+                "recall": 0.2489451476793249,
+                "f1-score": 0.25934065934065936,
+                "support": 474.0
+              },
+              "rest": {
+                "precision": 0.345679012345679,
+                "recall": 0.3559322033898305,
+                "f1-score": 0.35073068893528186,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.3137254901960784,
+                "recall": 0.2639175257731959,
+                "f1-score": 0.2866741321388578,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.3145539906103286,
+                "recall": 0.4036144578313253,
+                "f1-score": 0.35356200527704484,
+                "support": 332.0
+              },
+              "accuracy": 0.30138221153846156,
+              "macro avg": {
+                "precision": 0.3017069611508437,
+                "recall": 0.30465378571081103,
+                "f1-score": 0.30164338504961125,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.3004743074715587,
+                "recall": 0.30138221153846156,
+                "f1-score": 0.299431010010729,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                179,
+                16,
+                23,
+                52,
+                41,
+                71,
+                59,
+                27
+              ],
+              [
+                27,
+                42,
+                5,
+                17,
+                10,
+                15,
+                8,
+                20
+              ],
+              [
+                50,
+                7,
+                131,
+                81,
+                54,
+                45,
+                44,
+                68
+              ],
+              [
+                45,
+                19,
+                75,
+                103,
+                76,
+                46,
+                49,
+                60
+              ],
+              [
+                59,
+                9,
+                60,
+                73,
+                118,
+                57,
+                58,
+                40
+              ],
+              [
+                64,
+                17,
+                35,
+                52,
+                44,
+                168,
+                48,
+                44
+              ],
+              [
+                91,
+                21,
+                56,
+                53,
+                60,
+                43,
+                128,
+                33
+              ],
+              [
+                34,
+                5,
+                29,
+                42,
+                33,
+                41,
+                14,
+                134
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 3328,
+            "accuracy": 0.33052884615384615,
+            "macro_f1": 0.33214422691626455,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.34205607476635513,
+                "recall": 0.39019189765458423,
+                "f1-score": 0.3645418326693227,
+                "support": 469.0
+              },
+              "begging for food": {
+                "precision": 0.3184713375796178,
+                "recall": 0.3472222222222222,
+                "f1-score": 0.33222591362126247,
+                "support": 144.0
+              },
+              "playing with human": {
+                "precision": 0.31236897274633124,
+                "recall": 0.31106471816283926,
+                "f1-score": 0.3117154811715481,
+                "support": 479.0
+              },
+              "playing with other animals": {
+                "precision": 0.2565789473684211,
+                "recall": 0.24735729386892177,
+                "f1-score": 0.2518837459634015,
+                "support": 473.0
+              },
+              "playing with toy": {
+                "precision": 0.30648769574944074,
+                "recall": 0.2890295358649789,
+                "f1-score": 0.2975027144408252,
+                "support": 474.0
+              },
+              "rest": {
+                "precision": 0.3793103448275862,
+                "recall": 0.3495762711864407,
+                "f1-score": 0.3638368246968026,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.36904761904761907,
+                "recall": 0.31958762886597936,
+                "f1-score": 0.3425414364640884,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.35910224438902744,
+                "recall": 0.43373493975903615,
+                "f1-score": 0.39290586630286495,
+                "support": 332.0
+              },
+              "accuracy": 0.33052884615384615,
+              "macro avg": {
+                "precision": 0.3304279045592998,
+                "recall": 0.33597056344812537,
+                "f1-score": 0.33214422691626455,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.33046587819914347,
+                "recall": 0.33052884615384615,
+                "f1-score": 0.329503602946127,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                183,
+                17,
+                39,
+                39,
+                44,
+                53,
+                69,
+                25
+              ],
+              [
+                19,
+                50,
+                9,
+                15,
+                13,
+                6,
+                13,
+                19
+              ],
+              [
+                49,
+                12,
+                149,
+                69,
+                60,
+                44,
+                48,
+                48
+              ],
+              [
+                49,
+                21,
+                85,
+                117,
+                66,
+                45,
+                40,
+                50
+              ],
+              [
+                65,
+                7,
+                58,
+                68,
+                137,
+                53,
+                48,
+                38
+              ],
+              [
+                62,
+                20,
+                37,
+                54,
+                51,
+                165,
+                36,
+                47
+              ],
+              [
+                73,
+                16,
+                61,
+                64,
+                49,
+                37,
+                155,
+                30
+              ],
+              [
+                35,
+                14,
+                39,
+                30,
+                27,
+                32,
+                11,
+                144
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.32081330128205127,
+            "std_sample": 0.016827817341163953,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.3225692335066391,
+            "std_sample": 0.01814405608936441,
+            "fold_count": 3
+          }
+        }
+      },
+      "mapped_eight_to_six": {
+        "n": 9984,
+        "accuracy": 0.4450120192307692,
+        "macro_f1": 0.3873001128631885,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.3372093023255814,
+            "recall": 0.3921708185053381,
+            "f1-score": 0.36261928265876936,
+            "support": 1405.0
+          },
+          "begging for food": {
+            "precision": 0.33182844243792325,
+            "recall": 0.3394919168591224,
+            "f1-score": 0.3356164383561644,
+            "support": 433.0
+          },
+          "play related": {
+            "precision": 0.58679706601467,
+            "recall": 0.5607476635514018,
+            "f1-score": 0.5734767025089605,
+            "support": 4280.0
+          },
+          "rest": {
+            "precision": 0.3674484719260839,
+            "recall": 0.3651129943502825,
+            "f1-score": 0.3662770102727595,
+            "support": 1416.0
+          },
+          "seeking attention": {
+            "precision": 0.35404255319148936,
+            "recall": 0.2861072902338377,
+            "f1-score": 0.3164701407379232,
+            "support": 1454.0
+          },
+          "taking shower": {
+            "precision": 0.33360323886639676,
+            "recall": 0.41365461847389556,
+            "f1-score": 0.369341102644554,
+            "support": 996.0
+          },
+          "accuracy": 0.4450120192307692,
+          "macro avg": {
+            "precision": 0.3851548457936908,
+            "recall": 0.392880883662313,
+            "f1-score": 0.3873001128631885,
+            "support": 9984.0
+          },
+          "weighted avg": {
+            "precision": 0.45035115809140036,
+            "recall": 0.4450120192307692,
+            "f1-score": 0.4463082798573002,
+            "support": 9984.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            551,
+            46,
+            361,
+            182,
+            186,
+            79
+          ],
+          [
+            62,
+            147,
+            110,
+            35,
+            29,
+            50
+          ],
+          [
+            473,
+            120,
+            2400,
+            440,
+            380,
+            467
+          ],
+          [
+            192,
+            53,
+            389,
+            517,
+            128,
+            137
+          ],
+          [
+            250,
+            46,
+            522,
+            130,
+            416,
+            90
+          ],
+          [
+            106,
+            31,
+            308,
+            103,
+            36,
+            412
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "play related",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 3328,
+            "accuracy": 0.45522836538461536,
+            "macro_f1": 0.39889833168604394,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.34363636363636363,
+                "recall": 0.40384615384615385,
+                "f1-score": 0.3713163064833006,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.36666666666666664,
+                "recall": 0.3793103448275862,
+                "f1-score": 0.3728813559322034,
+                "support": 145.0
+              },
+              "play related": {
+                "precision": 0.5912040374909877,
+                "recall": 0.5746320953048353,
+                "f1-score": 0.5828002842928216,
+                "support": 1427.0
+              },
+              "rest": {
+                "precision": 0.3786008230452675,
+                "recall": 0.3898305084745763,
+                "f1-score": 0.38413361169102295,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.38328530259365995,
+                "recall": 0.27479338842975204,
+                "f1-score": 0.3200962695547533,
+                "support": 484.0
+              },
+              "taking shower": {
+                "precision": 0.3284313725490196,
+                "recall": 0.4036144578313253,
+                "f1-score": 0.3621621621621622,
+                "support": 332.0
+              },
+              "accuracy": 0.45522836538461536,
+              "macro avg": {
+                "precision": 0.39863742766366084,
+                "recall": 0.40433782478570485,
+                "f1-score": 0.39889833168604394,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.46000166375213236,
+                "recall": 0.45522836538461536,
+                "f1-score": 0.4555214335188437,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                189,
+                13,
+                123,
+                58,
+                58,
+                27
+              ],
+              [
+                16,
+                55,
+                41,
+                14,
+                8,
+                11
+              ],
+              [
+                156,
+                45,
+                820,
+                150,
+                93,
+                163
+              ],
+              [
+                66,
+                16,
+                116,
+                184,
+                44,
+                46
+              ],
+              [
+                86,
+                9,
+                179,
+                50,
+                133,
+                27
+              ],
+              [
+                37,
+                12,
+                108,
+                30,
+                11,
+                134
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 3328,
+            "accuracy": 0.42728365384615385,
+            "macro_f1": 0.36728497193752724,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.32604735883424407,
+                "recall": 0.38247863247863245,
+                "f1-score": 0.352015732546706,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.3088235294117647,
+                "recall": 0.2916666666666667,
+                "f1-score": 0.3,
+                "support": 144.0
+              },
+              "play related": {
+                "precision": 0.5827664399092971,
+                "recall": 0.5402943237561317,
+                "f1-score": 0.5607272727272727,
+                "support": 1427.0
+              },
+              "rest": {
+                "precision": 0.345679012345679,
+                "recall": 0.3559322033898305,
+                "f1-score": 0.35073068893528186,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.3137254901960784,
+                "recall": 0.2639175257731959,
+                "f1-score": 0.2866741321388578,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.3145539906103286,
+                "recall": 0.4036144578313253,
+                "f1-score": 0.35356200527704484,
+                "support": 332.0
+              },
+              "accuracy": 0.42728365384615385,
+              "macro avg": {
+                "precision": 0.36526597021789864,
+                "recall": 0.37298396831596375,
+                "f1-score": 0.36728497193752724,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.43522167769686754,
+                "recall": 0.42728365384615385,
+                "f1-score": 0.42970721335049716,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                179,
+                16,
+                116,
+                71,
+                59,
+                27
+              ],
+              [
+                27,
+                42,
+                32,
+                15,
+                8,
+                20
+              ],
+              [
+                154,
+                35,
+                771,
+                148,
+                151,
+                168
+              ],
+              [
+                64,
+                17,
+                131,
+                168,
+                48,
+                44
+              ],
+              [
+                91,
+                21,
+                169,
+                43,
+                128,
+                33
+              ],
+              [
+                34,
+                5,
+                104,
+                41,
+                14,
+                134
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 3328,
+            "accuracy": 0.45252403846153844,
+            "macro_f1": 0.39544556650954393,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.34205607476635513,
+                "recall": 0.39019189765458423,
+                "f1-score": 0.3645418326693227,
+                "support": 469.0
+              },
+              "begging for food": {
+                "precision": 0.3184713375796178,
+                "recall": 0.3472222222222222,
+                "f1-score": 0.33222591362126247,
+                "support": 144.0
+              },
+              "play related": {
+                "precision": 0.586231884057971,
+                "recall": 0.5673211781206171,
+                "f1-score": 0.5766215253029223,
+                "support": 1426.0
+              },
+              "rest": {
+                "precision": 0.3793103448275862,
+                "recall": 0.3495762711864407,
+                "f1-score": 0.3638368246968026,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.36904761904761907,
+                "recall": 0.31958762886597936,
+                "f1-score": 0.3425414364640884,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.35910224438902744,
+                "recall": 0.43373493975903615,
+                "f1-score": 0.39290586630286495,
+                "support": 332.0
+              },
+              "accuracy": 0.45252403846153844,
+              "macro avg": {
+                "precision": 0.3923699174446961,
+                "recall": 0.40127235630147995,
+                "f1-score": 0.39544556650954393,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.45657913505932246,
+                "recall": 0.45252403846153844,
+                "f1-score": 0.4535400455889021,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                183,
+                17,
+                122,
+                53,
+                69,
+                25
+              ],
+              [
+                19,
+                50,
+                37,
+                6,
+                13,
+                19
+              ],
+              [
+                163,
+                40,
+                809,
+                142,
+                136,
+                136
+              ],
+              [
+                62,
+                20,
+                142,
+                165,
+                36,
+                47
+              ],
+              [
+                73,
+                16,
+                174,
+                37,
+                155,
+                30
+              ],
+              [
+                35,
+                14,
+                96,
+                32,
+                11,
+                144
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.44501201923076916,
+            "std_sample": 0.015412642551961713,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.3872096233777051,
+            "std_sample": 0.017341401272689794,
+            "fold_count": 3
+          }
+        }
+      },
+      "retrained_six": {
+        "n": 9984,
+        "accuracy": 0.44220753205128205,
+        "macro_f1": 0.3886196943664482,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.32708089097303633,
+            "recall": 0.39715302491103205,
+            "f1-score": 0.35872709739633557,
+            "support": 1405.0
+          },
+          "begging for food": {
+            "precision": 0.3357664233576642,
+            "recall": 0.3187066974595843,
+            "f1-score": 0.32701421800947866,
+            "support": 433.0
+          },
+          "play related": {
+            "precision": 0.5965275978232703,
+            "recall": 0.5378504672897196,
+            "f1-score": 0.5656714584101241,
+            "support": 4280.0
+          },
+          "rest": {
+            "precision": 0.37074148296593185,
+            "recall": 0.3919491525423729,
+            "f1-score": 0.38105046343975285,
+            "support": 1416.0
+          },
+          "seeking attention": {
+            "precision": 0.35,
+            "recall": 0.31292984869325996,
+            "f1-score": 0.33042846768336964,
+            "support": 1454.0
+          },
+          "taking shower": {
+            "precision": 0.3360858794384806,
+            "recall": 0.4086345381526104,
+            "f1-score": 0.3688264612596285,
+            "support": 996.0
+          },
+          "accuracy": 0.44220753205128205,
+          "macro avg": {
+            "precision": 0.3860337124263972,
+            "recall": 0.39453728817476313,
+            "f1-score": 0.3886196943664482,
+            "support": 9984.0
+          },
+          "weighted avg": {
+            "precision": 0.45339394106721426,
+            "recall": 0.44220753205128205,
+            "f1-score": 0.44611820651965006,
+            "support": 9984.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            558,
+            39,
+            336,
+            187,
+            203,
+            82
+          ],
+          [
+            63,
+            138,
+            98,
+            42,
+            33,
+            59
+          ],
+          [
+            518,
+            116,
+            2302,
+            470,
+            431,
+            443
+          ],
+          [
+            202,
+            46,
+            347,
+            555,
+            140,
+            126
+          ],
+          [
+            261,
+            43,
+            465,
+            136,
+            455,
+            94
+          ],
+          [
+            104,
+            29,
+            311,
+            107,
+            38,
+            407
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "play related",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 3328,
+            "accuracy": 0.4528245192307692,
+            "macro_f1": 0.40334233044433804,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3339041095890411,
+                "recall": 0.4166666666666667,
+                "f1-score": 0.37072243346007605,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.36054421768707484,
+                "recall": 0.36551724137931035,
+                "f1-score": 0.363013698630137,
+                "support": 145.0
+              },
+              "play related": {
+                "precision": 0.6053249804228661,
+                "recall": 0.5416958654519972,
+                "f1-score": 0.5717455621301775,
+                "support": 1427.0
+              },
+              "rest": {
+                "precision": 0.39357429718875503,
+                "recall": 0.4152542372881356,
+                "f1-score": 0.4041237113402062,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.37530864197530867,
+                "recall": 0.3140495867768595,
+                "f1-score": 0.34195725534308213,
+                "support": 484.0
+              },
+              "taking shower": {
+                "precision": 0.33093525179856115,
+                "recall": 0.41566265060240964,
+                "f1-score": 0.3684913217623498,
+                "support": 332.0
+              },
+              "accuracy": 0.4528245192307692,
+              "macro avg": {
+                "precision": 0.3999319164436011,
+                "recall": 0.4114743746942298,
+                "f1-score": 0.40334233044433804,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.46563453620853096,
+                "recall": 0.4528245192307692,
+                "f1-score": 0.4569137092801015,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                195,
+                12,
+                110,
+                57,
+                65,
+                29
+              ],
+              [
+                19,
+                53,
+                32,
+                20,
+                10,
+                11
+              ],
+              [
+                168,
+                44,
+                773,
+                154,
+                121,
+                167
+              ],
+              [
+                75,
+                17,
+                97,
+                196,
+                45,
+                42
+              ],
+              [
+                92,
+                9,
+                157,
+                44,
+                152,
+                30
+              ],
+              [
+                35,
+                12,
+                108,
+                27,
+                12,
+                138
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 3328,
+            "accuracy": 0.4182692307692308,
+            "macro_f1": 0.36110430003724997,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3044982698961938,
+                "recall": 0.37606837606837606,
+                "f1-score": 0.3365200764818356,
+                "support": 468.0
+              },
+              "begging for food": {
+                "precision": 0.3076923076923077,
+                "recall": 0.25,
+                "f1-score": 0.27586206896551724,
+                "support": 144.0
+              },
+              "play related": {
+                "precision": 0.5852682145716573,
+                "recall": 0.5122634898388227,
+                "f1-score": 0.546337817638266,
+                "support": 1427.0
+              },
+              "rest": {
+                "precision": 0.345489443378119,
+                "recall": 0.3813559322033898,
+                "f1-score": 0.36253776435045315,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.31263858093126384,
+                "recall": 0.2907216494845361,
+                "f1-score": 0.30128205128205127,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.3106796116504854,
+                "recall": 0.3855421686746988,
+                "f1-score": 0.34408602150537637,
+                "support": 332.0
+              },
+              "accuracy": 0.4182692307692308,
+              "macro avg": {
+                "precision": 0.3610444046866712,
+                "recall": 0.3659919360449706,
+                "f1-score": 0.36110430003724997,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.43264332479175555,
+                "recall": 0.4182692307692308,
+                "f1-score": 0.4231718083772034,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                176,
+                11,
+                111,
+                73,
+                70,
+                27
+              ],
+              [
+                29,
+                36,
+                36,
+                13,
+                9,
+                21
+              ],
+              [
+                177,
+                32,
+                731,
+                161,
+                163,
+                163
+              ],
+              [
+                67,
+                15,
+                121,
+                180,
+                51,
+                38
+              ],
+              [
+                93,
+                19,
+                147,
+                50,
+                141,
+                35
+              ],
+              [
+                36,
+                4,
+                103,
+                44,
+                17,
+                128
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 3328,
+            "accuracy": 0.45552884615384615,
+            "macro_f1": 0.4008338021467543,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.34375,
+                "recall": 0.39872068230277186,
+                "f1-score": 0.36920039486673245,
+                "support": 469.0
+              },
+              "begging for food": {
+                "precision": 0.3333333333333333,
+                "recall": 0.3402777777777778,
+                "f1-score": 0.33676975945017185,
+                "support": 144.0
+              },
+              "play related": {
+                "precision": 0.5986496624156039,
+                "recall": 0.5596072931276297,
+                "f1-score": 0.5784704603117071,
+                "support": 1426.0
+              },
+              "rest": {
+                "precision": 0.37447698744769875,
+                "recall": 0.3792372881355932,
+                "f1-score": 0.37684210526315787,
+                "support": 472.0
+              },
+              "seeking attention": {
+                "precision": 0.36486486486486486,
+                "recall": 0.334020618556701,
+                "f1-score": 0.348762109795479,
+                "support": 485.0
+              },
+              "taking shower": {
+                "precision": 0.36910994764397903,
+                "recall": 0.4246987951807229,
+                "f1-score": 0.3949579831932773,
+                "support": 332.0
+              },
+              "accuracy": 0.45552884615384615,
+              "macro avg": {
+                "precision": 0.39736413261758,
+                "recall": 0.40609374251353275,
+                "f1-score": 0.4008338021467543,
+                "support": 3328.0
+              },
+              "weighted avg": {
+                "precision": 0.46248505671791634,
+                "recall": 0.45552884615384615,
+                "f1-score": 0.4581411821853974,
+                "support": 3328.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                187,
+                16,
+                115,
+                57,
+                68,
+                26
+              ],
+              [
+                15,
+                49,
+                30,
+                9,
+                14,
+                27
+              ],
+              [
+                173,
+                40,
+                798,
+                155,
+                147,
+                113
+              ],
+              [
+                60,
+                14,
+                129,
+                179,
+                44,
+                46
+              ],
+              [
+                76,
+                15,
+                161,
+                42,
+                162,
+                29
+              ],
+              [
+                33,
+                13,
+                100,
+                36,
+                9,
+                141
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.4422075320512821,
+            "std_sample": 0.02077522676721996,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.38842681087611414,
+            "std_sample": 0.023695207900751376,
+            "fold_count": 3
+          }
+        }
+      }
+    },
+    "primary_ge_1s": {
+      "original_eight": {
+        "n": 4954,
+        "accuracy": 0.35244247073072266,
+        "macro_f1": 0.356988626176566,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.3626882966396292,
+            "recall": 0.42013422818791946,
+            "f1-score": 0.38930348258706465,
+            "support": 745.0
+          },
+          "begging for food": {
+            "precision": 0.377431906614786,
+            "recall": 0.46190476190476193,
+            "f1-score": 0.41541755888650966,
+            "support": 210.0
+          },
+          "playing with human": {
+            "precision": 0.35259259259259257,
+            "recall": 0.33147632311977715,
+            "f1-score": 0.3417085427135678,
+            "support": 718.0
+          },
+          "playing with other animals": {
+            "precision": 0.2683513838748496,
+            "recall": 0.31408450704225355,
+            "f1-score": 0.28942245295262814,
+            "support": 710.0
+          },
+          "playing with toy": {
+            "precision": 0.31896551724137934,
+            "recall": 0.2368,
+            "f1-score": 0.27180899908172634,
+            "support": 625.0
+          },
+          "rest": {
+            "precision": 0.3993174061433447,
+            "recall": 0.34210526315789475,
+            "f1-score": 0.36850393700787404,
+            "support": 684.0
+          },
+          "seeking attention": {
+            "precision": 0.3993808049535604,
+            "recall": 0.3477088948787062,
+            "f1-score": 0.37175792507204614,
+            "support": 742.0
+          },
+          "taking shower": {
+            "precision": 0.37183544303797467,
+            "recall": 0.4519230769230769,
+            "f1-score": 0.4079861111111111,
+            "support": 520.0
+          },
+          "accuracy": 0.35244247073072266,
+          "macro avg": {
+            "precision": 0.3563204188872645,
+            "recall": 0.36326713190179877,
+            "f1-score": 0.356988626176566,
+            "support": 4954.0
+          },
+          "weighted avg": {
+            "precision": 0.35432700588442717,
+            "recall": 0.35244247073072266,
+            "f1-score": 0.35083567474342725,
+            "support": 4954.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            313,
+            28,
+            52,
+            84,
+            49,
+            74,
+            107,
+            38
+          ],
+          [
+            24,
+            97,
+            3,
+            30,
+            6,
+            9,
+            20,
+            21
+          ],
+          [
+            74,
+            17,
+            238,
+            135,
+            54,
+            59,
+            53,
+            88
+          ],
+          [
+            72,
+            35,
+            112,
+            223,
+            79,
+            49,
+            59,
+            81
+          ],
+          [
+            82,
+            11,
+            83,
+            120,
+            148,
+            60,
+            62,
+            59
+          ],
+          [
+            104,
+            27,
+            50,
+            91,
+            43,
+            234,
+            65,
+            70
+          ],
+          [
+            130,
+            25,
+            87,
+            93,
+            51,
+            58,
+            258,
+            40
+          ],
+          [
+            64,
+            17,
+            50,
+            55,
+            34,
+            43,
+            22,
+            235
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "playing with human",
+          "playing with other animals",
+          "playing with toy",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 1618,
+            "accuracy": 0.361557478368356,
+            "macro_f1": 0.36311903009483487,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.40714285714285714,
+                "recall": 0.4691358024691358,
+                "f1-score": 0.4359464627151052,
+                "support": 243.0
+              },
+              "begging for food": {
+                "precision": 0.3625,
+                "recall": 0.4603174603174603,
+                "f1-score": 0.40559440559440557,
+                "support": 63.0
+              },
+              "playing with human": {
+                "precision": 0.34893617021276596,
+                "recall": 0.34024896265560167,
+                "f1-score": 0.3445378151260504,
+                "support": 241.0
+              },
+              "playing with other animals": {
+                "precision": 0.2878787878787879,
+                "recall": 0.3220338983050847,
+                "f1-score": 0.304,
+                "support": 236.0
+              },
+              "playing with toy": {
+                "precision": 0.352112676056338,
+                "recall": 0.23809523809523808,
+                "f1-score": 0.2840909090909091,
+                "support": 210.0
+              },
+              "rest": {
+                "precision": 0.41,
+                "recall": 0.36936936936936937,
+                "f1-score": 0.3886255924170616,
+                "support": 222.0
+              },
+              "seeking attention": {
+                "precision": 0.38349514563106796,
+                "recall": 0.34801762114537443,
+                "f1-score": 0.3648960739030023,
+                "support": 227.0
+              },
+              "taking shower": {
+                "precision": 0.3459715639810427,
+                "recall": 0.4147727272727273,
+                "f1-score": 0.3772609819121447,
+                "support": 176.0
+              },
+              "accuracy": 0.361557478368356,
+              "macro avg": {
+                "precision": 0.3622546501128574,
+                "recall": 0.37024888495374897,
+                "f1-score": 0.36311903009483487,
+                "support": 1618.0
+              },
+              "weighted avg": {
+                "precision": 0.3626169842627514,
+                "recall": 0.361557478368356,
+                "f1-score": 0.3593500404547552,
+                "support": 1618.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                114,
+                7,
+                19,
+                24,
+                18,
+                17,
+                34,
+                10
+              ],
+              [
+                4,
+                29,
+                0,
+                10,
+                4,
+                4,
+                6,
+                6
+              ],
+              [
+                21,
+                10,
+                82,
+                49,
+                12,
+                20,
+                16,
+                31
+              ],
+              [
+                25,
+                10,
+                40,
+                76,
+                21,
+                17,
+                18,
+                29
+              ],
+              [
+                23,
+                4,
+                29,
+                37,
+                50,
+                22,
+                20,
+                25
+              ],
+              [
+                28,
+                8,
+                16,
+                27,
+                11,
+                82,
+                28,
+                22
+              ],
+              [
+                43,
+                4,
+                31,
+                23,
+                12,
+                20,
+                79,
+                15
+              ],
+              [
+                22,
+                8,
+                18,
+                18,
+                14,
+                18,
+                5,
+                73
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 1677,
+            "accuracy": 0.33392963625521765,
+            "macro_f1": 0.33908035019341365,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3548387096774194,
+                "recall": 0.4330708661417323,
+                "f1-score": 0.3900709219858156,
+                "support": 254.0
+              },
+              "begging for food": {
+                "precision": 0.38823529411764707,
+                "recall": 0.44594594594594594,
+                "f1-score": 0.41509433962264153,
+                "support": 74.0
+              },
+              "playing with human": {
+                "precision": 0.37623762376237624,
+                "recall": 0.31020408163265306,
+                "f1-score": 0.3400447427293065,
+                "support": 245.0
+              },
+              "playing with other animals": {
+                "precision": 0.2214765100671141,
+                "recall": 0.28448275862068967,
+                "f1-score": 0.2490566037735849,
+                "support": 232.0
+              },
+              "playing with toy": {
+                "precision": 0.25316455696202533,
+                "recall": 0.19138755980861244,
+                "f1-score": 0.21798365122615804,
+                "support": 209.0
+              },
+              "rest": {
+                "precision": 0.4020100502512563,
+                "recall": 0.33195020746887965,
+                "f1-score": 0.36363636363636365,
+                "support": 241.0
+              },
+              "seeking attention": {
+                "precision": 0.37209302325581395,
+                "recall": 0.32,
+                "f1-score": 0.34408602150537637,
+                "support": 250.0
+              },
+              "taking shower": {
+                "precision": 0.35714285714285715,
+                "recall": 0.436046511627907,
+                "f1-score": 0.39267015706806285,
+                "support": 172.0
+              },
+              "accuracy": 0.33392963625521765,
+              "macro avg": {
+                "precision": 0.3406498281545637,
+                "recall": 0.34413599140580253,
+                "f1-score": 0.33908035019341365,
+                "support": 1677.0
+              },
+              "weighted avg": {
+                "precision": 0.3379051007383804,
+                "recall": 0.33392963625521765,
+                "f1-score": 0.33252403607352776,
+                "support": 1677.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                110,
+                12,
+                11,
+                34,
+                16,
+                29,
+                27,
+                15
+              ],
+              [
+                11,
+                33,
+                1,
+                10,
+                2,
+                3,
+                7,
+                7
+              ],
+              [
+                30,
+                2,
+                76,
+                51,
+                21,
+                17,
+                18,
+                30
+              ],
+              [
+                25,
+                10,
+                31,
+                66,
+                30,
+                17,
+                24,
+                29
+              ],
+              [
+                27,
+                3,
+                30,
+                48,
+                40,
+                20,
+                24,
+                17
+              ],
+              [
+                41,
+                10,
+                14,
+                35,
+                14,
+                80,
+                25,
+                22
+              ],
+              [
+                47,
+                12,
+                30,
+                27,
+                21,
+                18,
+                80,
+                15
+              ],
+              [
+                19,
+                3,
+                9,
+                27,
+                14,
+                15,
+                10,
+                75
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 1659,
+            "accuracy": 0.3622664255575648,
+            "macro_f1": 0.3685235606109249,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.326007326007326,
+                "recall": 0.3588709677419355,
+                "f1-score": 0.3416506717850288,
+                "support": 248.0
+              },
+              "begging for food": {
+                "precision": 0.3804347826086957,
+                "recall": 0.4794520547945205,
+                "f1-score": 0.42424242424242425,
+                "support": 73.0
+              },
+              "playing with human": {
+                "precision": 0.33613445378151263,
+                "recall": 0.3448275862068966,
+                "f1-score": 0.3404255319148936,
+                "support": 232.0
+              },
+              "playing with other animals": {
+                "precision": 0.30111524163568776,
+                "recall": 0.3347107438016529,
+                "f1-score": 0.31702544031311153,
+                "support": 242.0
+              },
+              "playing with toy": {
+                "precision": 0.35365853658536583,
+                "recall": 0.2815533980582524,
+                "f1-score": 0.31351351351351353,
+                "support": 206.0
+              },
+              "rest": {
+                "precision": 0.3850267379679144,
+                "recall": 0.3257918552036199,
+                "f1-score": 0.35294117647058826,
+                "support": 221.0
+              },
+              "seeking attention": {
+                "precision": 0.44,
+                "recall": 0.37358490566037733,
+                "f1-score": 0.40408163265306124,
+                "support": 265.0
+              },
+              "taking shower": {
+                "precision": 0.41232227488151657,
+                "recall": 0.5058139534883721,
+                "f1-score": 0.45430809399477806,
+                "support": 172.0
+              },
+              "accuracy": 0.3622664255575648,
+              "macro avg": {
+                "precision": 0.3668374191835024,
+                "recall": 0.37557568311945344,
+                "f1-score": 0.3685235606109249,
+                "support": 1659.0
+              },
+              "weighted avg": {
+                "precision": 0.3646405284150176,
+                "recall": 0.3622664255575648,
+                "f1-score": 0.36118405794837805,
+                "support": 1659.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                89,
+                9,
+                22,
+                26,
+                15,
+                28,
+                46,
+                13
+              ],
+              [
+                9,
+                35,
+                2,
+                10,
+                0,
+                2,
+                7,
+                8
+              ],
+              [
+                23,
+                5,
+                80,
+                35,
+                21,
+                22,
+                19,
+                27
+              ],
+              [
+                22,
+                15,
+                41,
+                81,
+                28,
+                15,
+                17,
+                23
+              ],
+              [
+                32,
+                4,
+                24,
+                35,
+                58,
+                18,
+                18,
+                17
+              ],
+              [
+                35,
+                9,
+                20,
+                29,
+                18,
+                72,
+                12,
+                26
+              ],
+              [
+                40,
+                9,
+                26,
+                43,
+                18,
+                20,
+                99,
+                10
+              ],
+              [
+                23,
+                6,
+                23,
+                10,
+                6,
+                10,
+                7,
+                87
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "playing with human",
+              "playing with other animals",
+              "playing with toy",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.35258451339371283,
+            "std_sample": 0.01615948583088378,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.35690764696639116,
+            "std_sample": 0.015673596275223415,
+            "fold_count": 3
+          }
+        }
+      },
+      "mapped_eight_to_six": {
+        "n": 4954,
+        "accuracy": 0.4701251513928139,
+        "macro_f1": 0.4242602678761997,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.3626882966396292,
+            "recall": 0.42013422818791946,
+            "f1-score": 0.38930348258706465,
+            "support": 745.0
+          },
+          "begging for food": {
+            "precision": 0.377431906614786,
+            "recall": 0.46190476190476193,
+            "f1-score": 0.41541755888650966,
+            "support": 210.0
+          },
+          "play related": {
+            "precision": 0.6050761421319797,
+            "recall": 0.5806137359961032,
+            "f1-score": 0.5925925925925926,
+            "support": 2053.0
+          },
+          "rest": {
+            "precision": 0.3993174061433447,
+            "recall": 0.34210526315789475,
+            "f1-score": 0.36850393700787404,
+            "support": 684.0
+          },
+          "seeking attention": {
+            "precision": 0.3993808049535604,
+            "recall": 0.3477088948787062,
+            "f1-score": 0.37175792507204614,
+            "support": 742.0
+          },
+          "taking shower": {
+            "precision": 0.37183544303797467,
+            "recall": 0.4519230769230769,
+            "f1-score": 0.4079861111111111,
+            "support": 520.0
+          },
+          "accuracy": 0.4701251513928139,
+          "macro avg": {
+            "precision": 0.41928833325354575,
+            "recall": 0.4340649935080771,
+            "f1-score": 0.4242602678761997,
+            "support": 4954.0
+          },
+          "weighted avg": {
+            "precision": 0.4752751099394266,
+            "recall": 0.4701251513928139,
+            "f1-score": 0.47111732450156324,
+            "support": 4954.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            313,
+            28,
+            185,
+            74,
+            107,
+            38
+          ],
+          [
+            24,
+            97,
+            39,
+            9,
+            20,
+            21
+          ],
+          [
+            228,
+            63,
+            1192,
+            168,
+            174,
+            228
+          ],
+          [
+            104,
+            27,
+            184,
+            234,
+            65,
+            70
+          ],
+          [
+            130,
+            25,
+            231,
+            58,
+            258,
+            40
+          ],
+          [
+            64,
+            17,
+            139,
+            43,
+            22,
+            235
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "play related",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 1618,
+            "accuracy": 0.4777503090234858,
+            "macro_f1": 0.42811817645173234,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.40714285714285714,
+                "recall": 0.4691358024691358,
+                "f1-score": 0.4359464627151052,
+                "support": 243.0
+              },
+              "begging for food": {
+                "precision": 0.3625,
+                "recall": 0.4603174603174603,
+                "f1-score": 0.40559440559440557,
+                "support": 63.0
+              },
+              "play related": {
+                "precision": 0.6177847113884556,
+                "recall": 0.5764192139737991,
+                "f1-score": 0.5963855421686747,
+                "support": 687.0
+              },
+              "rest": {
+                "precision": 0.41,
+                "recall": 0.36936936936936937,
+                "f1-score": 0.3886255924170616,
+                "support": 222.0
+              },
+              "seeking attention": {
+                "precision": 0.38349514563106796,
+                "recall": 0.34801762114537443,
+                "f1-score": 0.3648960739030023,
+                "support": 227.0
+              },
+              "taking shower": {
+                "precision": 0.3459715639810427,
+                "recall": 0.4147727272727273,
+                "f1-score": 0.3772609819121447,
+                "support": 176.0
+              },
+              "accuracy": 0.4777503090234858,
+              "macro avg": {
+                "precision": 0.4211490463572372,
+                "recall": 0.4396720324246444,
+                "f1-score": 0.42811817645173234,
+                "support": 1618.0
+              },
+              "weighted avg": {
+                "precision": 0.48526310527101313,
+                "recall": 0.4777503090234858,
+                "f1-score": 0.4800423538758989,
+                "support": 1618.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                114,
+                7,
+                61,
+                17,
+                34,
+                10
+              ],
+              [
+                4,
+                29,
+                14,
+                4,
+                6,
+                6
+              ],
+              [
+                69,
+                24,
+                396,
+                59,
+                54,
+                85
+              ],
+              [
+                28,
+                8,
+                54,
+                82,
+                28,
+                22
+              ],
+              [
+                43,
+                4,
+                66,
+                20,
+                79,
+                15
+              ],
+              [
+                22,
+                8,
+                50,
+                18,
+                5,
+                73
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 1677,
+            "accuracy": 0.4597495527728086,
+            "macro_f1": 0.41506320539828145,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3548387096774194,
+                "recall": 0.4330708661417323,
+                "f1-score": 0.3900709219858156,
+                "support": 254.0
+              },
+              "begging for food": {
+                "precision": 0.38823529411764707,
+                "recall": 0.44594594594594594,
+                "f1-score": 0.41509433962264153,
+                "support": 74.0
+              },
+              "play related": {
+                "precision": 0.5972644376899696,
+                "recall": 0.5728862973760933,
+                "f1-score": 0.5848214285714286,
+                "support": 686.0
+              },
+              "rest": {
+                "precision": 0.4020100502512563,
+                "recall": 0.33195020746887965,
+                "f1-score": 0.36363636363636365,
+                "support": 241.0
+              },
+              "seeking attention": {
+                "precision": 0.37209302325581395,
+                "recall": 0.32,
+                "f1-score": 0.34408602150537637,
+                "support": 250.0
+              },
+              "taking shower": {
+                "precision": 0.35714285714285715,
+                "recall": 0.436046511627907,
+                "f1-score": 0.39267015706806285,
+                "support": 172.0
+              },
+              "accuracy": 0.4597495527728086,
+              "macro avg": {
+                "precision": 0.41193072868916053,
+                "recall": 0.42331663809342635,
+                "f1-score": 0.41506320539828145,
+                "support": 1677.0
+              },
+              "weighted avg": {
+                "precision": 0.4650674404479233,
+                "recall": 0.4597495527728086,
+                "f1-score": 0.46045297039051114,
+                "support": 1677.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                110,
+                12,
+                61,
+                29,
+                27,
+                15
+              ],
+              [
+                11,
+                33,
+                13,
+                3,
+                7,
+                7
+              ],
+              [
+                82,
+                15,
+                393,
+                54,
+                66,
+                76
+              ],
+              [
+                41,
+                10,
+                63,
+                80,
+                25,
+                22
+              ],
+              [
+                47,
+                12,
+                78,
+                18,
+                80,
+                15
+              ],
+              [
+                19,
+                3,
+                50,
+                15,
+                10,
+                75
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 1659,
+            "accuracy": 0.4731766124171187,
+            "macro_f1": 0.42896985231261836,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.326007326007326,
+                "recall": 0.3588709677419355,
+                "f1-score": 0.3416506717850288,
+                "support": 248.0
+              },
+              "begging for food": {
+                "precision": 0.3804347826086957,
+                "recall": 0.4794520547945205,
+                "f1-score": 0.42424242424242425,
+                "support": 73.0
+              },
+              "play related": {
+                "precision": 0.6005961251862891,
+                "recall": 0.5926470588235294,
+                "f1-score": 0.5965951147298297,
+                "support": 680.0
+              },
+              "rest": {
+                "precision": 0.3850267379679144,
+                "recall": 0.3257918552036199,
+                "f1-score": 0.35294117647058826,
+                "support": 221.0
+              },
+              "seeking attention": {
+                "precision": 0.44,
+                "recall": 0.37358490566037733,
+                "f1-score": 0.40408163265306124,
+                "support": 265.0
+              },
+              "taking shower": {
+                "precision": 0.41232227488151657,
+                "recall": 0.5058139534883721,
+                "f1-score": 0.45430809399477806,
+                "support": 172.0
+              },
+              "accuracy": 0.4731766124171187,
+              "macro avg": {
+                "precision": 0.4240645411086237,
+                "recall": 0.43936013261872575,
+                "f1-score": 0.42896985231261836,
+                "support": 1659.0
+              },
+              "weighted avg": {
+                "precision": 0.47597182729201826,
+                "recall": 0.4731766124171187,
+                "f1-score": 0.4729393408130388,
+                "support": 1659.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                89,
+                9,
+                63,
+                28,
+                46,
+                13
+              ],
+              [
+                9,
+                35,
+                12,
+                2,
+                7,
+                8
+              ],
+              [
+                77,
+                24,
+                403,
+                55,
+                54,
+                67
+              ],
+              [
+                35,
+                9,
+                67,
+                72,
+                12,
+                26
+              ],
+              [
+                40,
+                9,
+                87,
+                20,
+                99,
+                10
+              ],
+              [
+                23,
+                6,
+                39,
+                10,
+                7,
+                87
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.470225491404471,
+            "std_sample": 0.009356208784680985,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.42405041138754407,
+            "std_sample": 0.0077947893854216545,
+            "fold_count": 3
+          }
+        }
+      },
+      "retrained_six": {
+        "n": 4954,
+        "accuracy": 0.4658861526039564,
+        "macro_f1": 0.4270245837381191,
+        "per_class": {
+          "alerting to sounds": {
+            "precision": 0.3558758314855876,
+            "recall": 0.43087248322147653,
+            "f1-score": 0.38979963570127507,
+            "support": 745.0
+          },
+          "begging for food": {
+            "precision": 0.38271604938271603,
+            "recall": 0.44285714285714284,
+            "f1-score": 0.4105960264900662,
+            "support": 210.0
+          },
+          "play related": {
+            "precision": 0.6118995633187773,
+            "recall": 0.5460301997077448,
+            "f1-score": 0.5770913770913771,
+            "support": 2053.0
+          },
+          "rest": {
+            "precision": 0.40644171779141103,
+            "recall": 0.38742690058479534,
+            "f1-score": 0.3967065868263473,
+            "support": 684.0
+          },
+          "seeking attention": {
+            "precision": 0.3948497854077253,
+            "recall": 0.3719676549865229,
+            "f1-score": 0.3830673143650243,
+            "support": 742.0
+          },
+          "taking shower": {
+            "precision": 0.3706070287539936,
+            "recall": 0.4461538461538462,
+            "f1-score": 0.4048865619546248,
+            "support": 520.0
+          },
+          "accuracy": 0.4658861526039564,
+          "macro avg": {
+            "precision": 0.4203983293567018,
+            "recall": 0.43755137125192145,
+            "f1-score": 0.4270245837381191,
+            "support": 4954.0
+          },
+          "weighted avg": {
+            "precision": 0.4774784010929586,
+            "recall": 0.4658861526039564,
+            "f1-score": 0.46982615183557436,
+            "support": 4954.0
+          }
+        },
+        "confusion_matrix": [
+          [
+            321,
+            21,
+            173,
+            78,
+            112,
+            40
+          ],
+          [
+            24,
+            93,
+            30,
+            12,
+            22,
+            29
+          ],
+          [
+            259,
+            63,
+            1121,
+            191,
+            198,
+            221
+          ],
+          [
+            106,
+            24,
+            157,
+            265,
+            68,
+            64
+          ],
+          [
+            132,
+            26,
+            210,
+            58,
+            276,
+            40
+          ],
+          [
+            60,
+            16,
+            141,
+            48,
+            23,
+            232
+          ]
+        ],
+        "labels": [
+          "alerting to sounds",
+          "begging for food",
+          "play related",
+          "rest",
+          "seeking attention",
+          "taking shower"
+        ],
+        "folds": [
+          {
+            "fold": 1,
+            "n": 1618,
+            "accuracy": 0.4715698393077874,
+            "macro_f1": 0.43167645763954665,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3973509933774834,
+                "recall": 0.49382716049382713,
+                "f1-score": 0.44036697247706424,
+                "support": 243.0
+              },
+              "begging for food": {
+                "precision": 0.35,
+                "recall": 0.4444444444444444,
+                "f1-score": 0.3916083916083916,
+                "support": 63.0
+              },
+              "play related": {
+                "precision": 0.6278260869565218,
+                "recall": 0.5254730713245997,
+                "f1-score": 0.572107765451664,
+                "support": 687.0
+              },
+              "rest": {
+                "precision": 0.4272300469483568,
+                "recall": 0.4099099099099099,
+                "f1-score": 0.41839080459770117,
+                "support": 222.0
+              },
+              "seeking attention": {
+                "precision": 0.3706896551724138,
+                "recall": 0.3788546255506608,
+                "f1-score": 0.3747276688453159,
+                "support": 227.0
+              },
+              "taking shower": {
+                "precision": 0.35648148148148145,
+                "recall": 0.4375,
+                "f1-score": 0.39285714285714285,
+                "support": 176.0
+              },
+              "accuracy": 0.4715698393077874,
+              "macro avg": {
+                "precision": 0.42159637732270955,
+                "recall": 0.44833486862057365,
+                "f1-score": 0.43167645763954665,
+                "support": 1618.0
+              },
+              "weighted avg": {
+                "precision": 0.4892800840650635,
+                "recall": 0.4715698393077874,
+                "f1-score": 0.47701318568602097,
+                "support": 1618.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                120,
+                6,
+                53,
+                17,
+                36,
+                11
+              ],
+              [
+                5,
+                28,
+                9,
+                8,
+                7,
+                6
+              ],
+              [
+                81,
+                25,
+                361,
+                65,
+                68,
+                87
+              ],
+              [
+                33,
+                8,
+                42,
+                91,
+                29,
+                19
+              ],
+              [
+                44,
+                5,
+                61,
+                15,
+                86,
+                16
+              ],
+              [
+                19,
+                8,
+                49,
+                17,
+                6,
+                77
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 2,
+            "n": 1677,
+            "accuracy": 0.4502087060226595,
+            "macro_f1": 0.41189507245333795,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.3394495412844037,
+                "recall": 0.43700787401574803,
+                "f1-score": 0.38209982788296043,
+                "support": 254.0
+              },
+              "begging for food": {
+                "precision": 0.4084507042253521,
+                "recall": 0.3918918918918919,
+                "f1-score": 0.4,
+                "support": 74.0
+              },
+              "play related": {
+                "precision": 0.5993431855500821,
+                "recall": 0.532069970845481,
+                "f1-score": 0.5637065637065637,
+                "support": 686.0
+              },
+              "rest": {
+                "precision": 0.39732142857142855,
+                "recall": 0.36929460580912865,
+                "f1-score": 0.3827956989247312,
+                "support": 241.0
+              },
+              "seeking attention": {
+                "precision": 0.37656903765690375,
+                "recall": 0.36,
+                "f1-score": 0.36809815950920244,
+                "support": 250.0
+              },
+              "taking shower": {
+                "precision": 0.34299516908212563,
+                "recall": 0.4127906976744186,
+                "f1-score": 0.37467018469656993,
+                "support": 172.0
+              },
+              "accuracy": 0.4502087060226595,
+              "macro avg": {
+                "precision": 0.4106881777283827,
+                "recall": 0.4171758400394447,
+                "f1-score": 0.41189507245333795,
+                "support": 1677.0
+              },
+              "weighted avg": {
+                "precision": 0.46302137964718937,
+                "recall": 0.4502087060226595,
+                "f1-score": 0.4544291198991924,
+                "support": 1677.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                111,
+                8,
+                58,
+                31,
+                31,
+                15
+              ],
+              [
+                13,
+                29,
+                14,
+                2,
+                8,
+                8
+              ],
+              [
+                94,
+                13,
+                365,
+                62,
+                73,
+                79
+              ],
+              [
+                44,
+                8,
+                54,
+                89,
+                26,
+                20
+              ],
+              [
+                45,
+                11,
+                67,
+                23,
+                90,
+                14
+              ],
+              [
+                20,
+                2,
+                51,
+                17,
+                11,
+                71
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          },
+          {
+            "fold": 3,
+            "n": 1659,
+            "accuracy": 0.47619047619047616,
+            "macro_f1": 0.4367200613132271,
+            "per_class": {
+              "alerting to sounds": {
+                "precision": 0.32967032967032966,
+                "recall": 0.3629032258064516,
+                "f1-score": 0.345489443378119,
+                "support": 248.0
+              },
+              "begging for food": {
+                "precision": 0.391304347826087,
+                "recall": 0.4931506849315068,
+                "f1-score": 0.43636363636363634,
+                "support": 73.0
+              },
+              "play related": {
+                "precision": 0.6095679012345679,
+                "recall": 0.5808823529411765,
+                "f1-score": 0.5948795180722891,
+                "support": 680.0
+              },
+              "rest": {
+                "precision": 0.3953488372093023,
+                "recall": 0.38461538461538464,
+                "f1-score": 0.38990825688073394,
+                "support": 221.0
+              },
+              "seeking attention": {
+                "precision": 0.43859649122807015,
+                "recall": 0.37735849056603776,
+                "f1-score": 0.4056795131845842,
+                "support": 265.0
+              },
+              "taking shower": {
+                "precision": 0.41379310344827586,
+                "recall": 0.4883720930232558,
+                "f1-score": 0.448,
+                "support": 172.0
+              },
+              "accuracy": 0.47619047619047616,
+              "macro avg": {
+                "precision": 0.42971350176943884,
+                "recall": 0.4478803719806355,
+                "f1-score": 0.4367200613132271,
+                "support": 1659.0
+              },
+              "weighted avg": {
+                "precision": 0.48197842614879455,
+                "recall": 0.47619047619047616,
+                "f1-score": 0.47786907502473336,
+                "support": 1659.0
+              }
+            },
+            "confusion_matrix": [
+              [
+                90,
+                7,
+                62,
+                30,
+                45,
+                14
+              ],
+              [
+                6,
+                36,
+                7,
+                2,
+                7,
+                15
+              ],
+              [
+                84,
+                25,
+                395,
+                64,
+                57,
+                55
+              ],
+              [
+                29,
+                8,
+                61,
+                85,
+                13,
+                25
+              ],
+              [
+                43,
+                10,
+                82,
+                20,
+                100,
+                10
+              ],
+              [
+                21,
+                6,
+                41,
+                14,
+                6,
+                84
+              ]
+            ],
+            "labels": [
+              "alerting to sounds",
+              "begging for food",
+              "play related",
+              "rest",
+              "seeking attention",
+              "taking shower"
+            ]
+          }
+        ],
+        "fold_summary": {
+          "accuracy": {
+            "mean": 0.4659896738403077,
+            "std_sample": 0.013860619764161046,
+            "fold_count": 3
+          },
+          "macro_f1": {
+            "mean": 0.42676386380203724,
+            "std_sample": 0.013121364320552064,
+            "fold_count": 3
+          }
+        }
+      }
+    }
+  }
+}
